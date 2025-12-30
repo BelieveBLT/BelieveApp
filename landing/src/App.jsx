@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { 
+import {
   Terminal,
   Hash,
   Binary,
@@ -37,9 +37,9 @@ const TypewriterTag = ({ text, className = "ind-tag", style = {} }) => {
   });
 
   return (
-    <span 
-      ref={ref} 
-      className={`${className} ${inView ? 'typing' : ''}`} 
+    <span
+      ref={ref}
+      className={`${className} ${inView ? 'typing' : ''}`}
       style={{ ...style, '--char-count': text.length }}
     >
       {text}
@@ -49,6 +49,8 @@ const TypewriterTag = ({ text, className = "ind-tag", style = {} }) => {
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,25 +63,33 @@ function App() {
   return (
     <div className="app">
       {/* Navigation */}
-      <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+      <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${menuOpen ? 'menu-open' : ''}`}>
         <div className="container">
           <div className="nav-content">
             <div className="logo">
               <div className="logo-icon">B</div>
               <span className="logo-title">BELIEVE</span>
             </div>
-            
-            <div className="nav-links">
-              <a href="#problem">DILEMMA</a>
-              <a href="#philosophy">MISSION</a>
-              <a href="#acquisition">GET BLT</a>
-              <a href="#airdrop">LEDGER</a>
+
+            <div className={`nav-links ${menuOpen ? 'active' : ''}`}>
+              <a href="#problem" onClick={() => setMenuOpen(false)}>DILEMMA</a>
+              <a href="#philosophy" onClick={() => setMenuOpen(false)}>MISSION</a>
+              <a href="#acquisition" onClick={() => setMenuOpen(false)}>GET BLT</a>
+              <a href="#airdrop" onClick={() => setMenuOpen(false)}>LEDGER</a>
+              <div className="nav-mobile-actions">
+                <button className="btn btn-secondary">WHITEPAPER</button>
+                <button className="btn btn-primary">JOIN NOW</button>
+              </div>
             </div>
-            
+
             <div className="nav-actions">
               <button className="btn btn-secondary">WHITEPAPER</button>
               <button className="btn btn-primary">JOIN NOW</button>
             </div>
+
+            <button className="mobile-menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+              {menuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
         </div>
       </nav>
@@ -93,9 +103,9 @@ function App() {
               TRADING VS <br />
               <span className="text-gradient">BELIEVING.</span>
             </h1>
-            
+
             <p className="hero-description">
-              The noise of the market is designed to extract your value. 
+              The noise of the market is designed to extract your value.
               Our architecture is built to preserve your conviction.
             </p>
 
@@ -118,8 +128,8 @@ function App() {
               <div className="partners-marquee">
                 <div className="marquee-content">
                   {[
-                    "HYPERLIQUID", "HYPEREVM", "ETHEREUM", "AAVE", "BINANCE CHAIN", 
-                    "UNISWAP", "CHAINLINK", "CURSOR", "GOOGLE CLOUD", "ARBITRUM", 
+                    "HYPERLIQUID", "HYPEREVM", "ETHEREUM", "AAVE", "BINANCE CHAIN",
+                    "UNISWAP", "CHAINLINK", "CURSOR", "GOOGLE CLOUD", "ARBITRUM",
                     "POLYGON", "BASE", "OPTIMISM", "SOLANA"
                   ].map((partner, i) => (
                     <div key={i} className="partner-item">
@@ -129,8 +139,8 @@ function App() {
                   ))}
                   {/* Duplicate for infinite loop */}
                   {[
-                    "HYPERLIQUID", "HYPEREVM", "ETHEREUM", "AAVE", "BINANCE CHAIN", 
-                    "UNISWAP", "CHAINLINK", "CURSOR", "GOOGLE CLOUD", "ARBITRUM", 
+                    "HYPERLIQUID", "HYPEREVM", "ETHEREUM", "AAVE", "BINANCE CHAIN",
+                    "UNISWAP", "CHAINLINK", "CURSOR", "GOOGLE CLOUD", "ARBITRUM",
                     "POLYGON", "BASE", "OPTIMISM", "SOLANA"
                   ].map((partner, i) => (
                     <div key={`dup-${i}`} className="partner-item">
@@ -170,7 +180,7 @@ function App() {
               <p>Fear and greed are not strategies. They are the mechanisms of systemic loss.</p>
             </div>
           </div>
-          
+
           <div className="ind-quote-box">
             <div className="quote-line"></div>
             <p>"The market is a machine for transferring money from the active to the patient."</p>
@@ -294,7 +304,7 @@ function App() {
               <TypewriterTag text="ROOT_PROTOCOL" />
               <h2>Back to the Source</h2>
               <p>
-                Bitcoin wasn't built for leverage loops or high-frequency gambling. 
+                Bitcoin wasn't built for leverage loops or high-frequency gambling.
                 It was built for <strong>Peer-to-Peer Conviction.</strong>
               </p>
               <div className="phil-points">
@@ -398,7 +408,7 @@ function App() {
               <p style={{ color: '#888', marginBottom: '32px' }}>
                 Acquire BLT directly through the secure contract deployer. This method is preferred for larger allocations to avoid market slippage.
               </p>
-              
+
               <div className="terminal-block">
                 <span className="terminal-label">DEPLOYER_WALLET_ADDRESS</span>
                 <div className="terminal-address">
@@ -518,7 +528,7 @@ function App() {
               <p>Conviction, signal, peace, and exponential growth.</p>
             </div>
           </div>
-          
+
           <div className="final-call">
             <h2>The choice is yours. The network is ready.</h2>
             <button className="btn btn-primary btn-large">INITIATE CONNECTION</button>
@@ -539,7 +549,7 @@ function App() {
                 The institutional standard for professional conviction.
               </p>
             </div>
-            
+
             <div className="footer-column">
               <h4>NETWORK</h4>
               <ul>
@@ -548,7 +558,7 @@ function App() {
                 <li><a href="#">GOVERNANCE</a></li>
               </ul>
             </div>
-            
+
             <div className="footer-column">
               <h4>COMMUNITY</h4>
               <ul>
@@ -557,7 +567,7 @@ function App() {
                 <li><a href="#">DISCORD</a></li>
               </ul>
             </div>
-            
+
             <div className="footer-column">
               <h4>RESOURCES</h4>
               <ul>
@@ -567,7 +577,7 @@ function App() {
               </ul>
             </div>
           </div>
-          
+
           <div className="footer-bottom">
             <p>CORE_v1.0.4 // © 2024 BELIEVE NETWORK</p>
             <div className="footer-legal">
