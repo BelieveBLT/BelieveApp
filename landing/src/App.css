@@ -1051,6 +1051,10 @@
   text-decoration: none;
 }
 
+.mobile-br {
+  display: none;
+}
+
 /* MOBILE RESPONSIVE IMPROVEMENTS */
 .mobile-menu-toggle {
   display: none;
@@ -1099,6 +1103,10 @@
 }
 
 @media (max-width: 768px) {
+  .mobile-br {
+    display: block;
+  }
+
   .navbar {
     padding: 16px 0;
   }
@@ -1147,7 +1155,8 @@
   .hero-description {
     font-size: 16px;
     margin-bottom: 32px;
-    padding: 0 20px;
+    padding: 0 10px;
+    line-height: 1.4;
     width: 100%;
     max-width: 100%;
   }
@@ -1157,8 +1166,8 @@
     padding-left: 20px;
     gap: 32px;
     border-left: 2px solid rgba(255, 255, 255, 0.1);
-    margin-left: 20px;
-    margin-right: 20px;
+    margin: 0 20px 40px;
+    text-align: left;
   }
 
   .ind-header h2 {
@@ -1168,11 +1177,18 @@
   .phil-text h2 {
     font-size: 36px;
     margin-bottom: 16px;
+    text-align: center;
   }
 
   .phil-text p {
     font-size: 16px;
     margin-bottom: 32px;
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .phil-points {
+    align-items: center;
   }
 
   .ind-quote-box {
@@ -1226,7 +1242,17 @@
 
   .footer-content {
     grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
+    gap: 32px;
+  }
+
+  .footer-column.brand {
+    grid-column: span 2;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .footer-column.brand .logo {
+    justify-content: center;
   }
 
   .footer-bottom {
@@ -1255,6 +1281,9 @@
   }
 
   .footer-content {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 }

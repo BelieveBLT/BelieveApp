@@ -105,8 +105,8 @@ function App() {
             </h1>
 
             <p className="hero-description">
-              The noise of the market is designed to extract your value.
-              Our architecture is built to preserve your conviction.
+              The noise of the market is designed <br className="mobile-br" /> to extract your value.
+              Our architecture <br className="mobile-br" /> is built to preserve your conviction.
             </p>
 
             <div className="hero-industrial-grid">
@@ -304,8 +304,8 @@ function App() {
               <TypewriterTag text="ROOT_PROTOCOL" />
               <h2>Back to the Source</h2>
               <p>
-                Bitcoin wasn't built for leverage loops or high-frequency gambling.
-                It was built for <strong>Peer-to-Peer Conviction.</strong>
+                Bitcoin wasn't built for leverage loops <br className="mobile-br" /> or high-frequency gambling.
+                It was built <br className="mobile-br" /> for <strong>Peer-to-Peer Conviction.</strong>
               </p>
               <div className="phil-points">
                 <div className="phil-point">
