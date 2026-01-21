@@ -273,3 +273,32 @@ body {
         margin-bottom: 5px;
     }
 }
+
+/* Book Separators */
+.toc-subhead {
+    display: block;
+    color: var(--accent-gold);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    opacity: 0.5;
+}
+
+.book-break {
+    margin: 100px 0;
+    text-align: center;
+    border-top: 2px solid var(--accent-gold);
+    border-bottom: 2px solid var(--accent-gold);
+    padding: 20px;
+}
+
+.book-marker {
+    font-family: var(--font-mono);
+    color: var(--accent-gold);
+    letter-spacing: 3px;
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 40px;
+}
