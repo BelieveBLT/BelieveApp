@@ -153,287 +153,181 @@
         </div>
     </section>
 
-    <script>
-        // --- LENIS SMOOTH SCROLL ---
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Exponential easing
-            smooth: true
-        });
-
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
-
-        // --- GSAP INTEGRATION ---
-        gsap.registerPlugin(ScrollTrigger);
-
-        // 0. HERO DELAY (Pin Section 1 briefly)
-        ScrollTrigger.create({
-            trigger: "#hero-static",
-            start: "top top",
-            end: "+=500", // Slight delay/friction before moving on
-            pin: true,
-            scrub: true
-        });
-
-        // 1. TRUST THREAD (SVG Path)
-        // Need to set the path D attribute dynamically based on window width/height
-        const threadSvg = document.querySelector('.thread-svg');
-        const threadPath = document.querySelector('.thread-line');
-
-        function updateThread() {
-            const w = window.innerWidth;
-            const h = window.innerHeight; // Section height
-            // Simple sin wave going down 4 sections
-            let d = `M${w / 2},0 `;
-            // Section 1
-            d += `C${w / 2 + 100},${h / 2} ${w / 2 - 100},${h / 2} ${w / 2},${h} `;
-            // Section 2
-            d += `C${w / 2 + 200},${h + h / 2} ${w / 2 - 200},${h + h / 2} ${w / 2},${h * 2} `;
-            // Section 3
-            d += `C${w / 2 + 100},${h * 2 + h / 2} ${w / 2 - 100},${h * 2 + h / 2} ${w / 2},${h * 3} `;
-            // Section 4
-            d += `C${w / 2},${h * 3 + h / 2} ${w / 2},${h * 4} ${w / 2},${h * 4} `;
-
-            threadPath.setAttribute('d', d);
-
-            // Length for animation
-            const len = threadPath.getTotalLength();
-            threadPath.style.strokeDasharray = len;
-            threadPath.style.strokeDashoffset = len;
-
-            gsap.to(threadPath, {
-                strokeDashoffset: 0,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: "body",
-                    start: "top top",
-                    end: "bottom bottom",
-                    scrub: 1
-                }
-            });
-        }
-        window.addEventListener('resize', updateThread);
-        // Delay slightly to ensure layout
-        setTimeout(updateThread, 100);
-
-
-        // 2. ORBITAL EXPANSION
-        const sun = document.querySelector('.sun-core');
-        gsap.to(sun, {
-            scale: 50,
-            opacity: 0,
-            ease: "power2.inOut",
-            scrollTrigger: {
-                trigger: "#cycles",
-                start: "top top",
-                end: "+=2000", /* Extended pin duration */
-                scrub: true,
-                pin: true
-            }
-        });
-        gsap.to('.hero-content', {
-            opacity: 0,
-            scale: 0.8,
-            scrollTrigger: {
-                trigger: "#cycles",
-                start: "center center",
-                end: "+=2000", /* Match pin duration */
-                scrub: true
-            }
-        });
-
-
-        // 3. LENS REVEAL
-        const lensSection = document.getElementById('verification');
-        const lensCursor = document.querySelector('.lens-cursor');
-        const hiddenLayer = document.querySelector('.hidden-layer');
-
-        if (lensSection && lensCursor) {
-            lensSection.addEventListener('mouseenter', () => {
-                lensCursor.style.display = 'block';
-                // Also show hidden layer slightly so we can mask it? 
-                // Actually, best way is to set opacity of hidden to 1 BUT clip-path it
-                // Simpler for prototype: Lens is mix-blend-mode screen, hidden layer is low opacity
-                gsap.to(hiddenLayer, { opacity: 0.15, duration: 0.5 });
-            });
-            lensSection.addEventListener('mouseleave', () => {
-                lensCursor.style.display = 'none';
-                gsap.to(hiddenLayer, { opacity: 0, duration: 0.5 });
-            });
-            lensSection.addEventListener('mousemove', (e) => {
-                gsap.to(lensCursor, {
-                    x: e.clientX,
-                    y: e.clientY,
-                    duration: 0.1,
-                    ease: "power2.out"
-                });
-            });
-        }
-
-        // Ledger Animation (Parallax)
-        gsap.utils.toArray(".ledger-row").forEach((row, i) => {
-            gsap.to(row, {
-                x: i % 2 === 0 ? "10%" : "-10%",
-                scrollTrigger: {
-                    trigger: "#verification",
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: true
-                }
-            });
-        });
-
-
-        // 4. COORDINATION CANVAS (Network)
-        {
-            const canvas = document.createElement('canvas');
-            canvas.style.position = "absolute";
-            canvas.style.inset = "0";
-            const ctx = canvas.getContext('2d');
-            const networkBg = document.getElementById('networkBg');
-
-            if (networkBg) {
-                networkBg.innerHTML = ''; // Clear prev
-                networkBg.appendChild(canvas);
-
-                let w, h;
-                function resize() {
-                    w = canvas.width = networkBg.offsetWidth;
-                    h = canvas.height = networkBg.offsetHeight;
-                }
-                window.addEventListener('resize', resize);
-                resize();
-
-                const nodes = [];
-                for (let i = 0; i < 40; i++) {
-                    nodes.push({
-                        x: Math.random() * w,
-                        y: Math.random() * h,
-                        vx: (Math.random() - 0.5) * 0.5,
-                        vy: (Math.random() - 0.5) * 0.5
-                    });
-                }
-
-                function draw() {
-                    ctx.clearRect(0, 0, w, h);
-                    ctx.fillStyle = '#ffcfcf';
-                    ctx.strokeStyle = 'rgba(255, 59, 48, 0.15)';
-
-                    nodes.forEach(node => {
-                        node.x += node.vx;
-                        node.y += node.vy;
-                        if (node.x < 0 || node.x > w) node.vx *= -1;
-                        if (node.y < 0 || node.y > h) node.vy *= -1;
-
-                        ctx.beginPath();
-                        ctx.arc(node.x, node.y, 2, 0, Math.PI * 2);
-                        ctx.fill();
-
-                        nodes.forEach(other => {
-                            const d = Math.hypot(node.x - other.x, node.y - other.y);
-                            if (d < 150) {
-                                ctx.beginPath();
-                                ctx.moveTo(node.x, node.y);
-                                ctx.lineTo(other.x, other.y);
-                                ctx.stroke();
-                            }
-                        });
-                    });
-                    requestAnimationFrame(draw);
-                }
-                draw();
-            }
-        }
-
-        // 5. COMMUNITY PARTICLES (Assembler)
-        {
-            const canvas = document.getElementById('particleCanvas');
-            const ctx = canvas.getContext('2d');
-            let w, h;
-
-            function resizeP() {
-                w = canvas.width = window.innerWidth;
-                h = canvas.height = window.innerHeight;
-            }
-            window.addEventListener('resize', resizeP);
-            resizeP();
-
-            const particles = [];
-            const centerX = w / 2;
-            const centerY = h / 2;
-
-            // Create particles
-            for (let i = 0; i < 150; i++) {
-                particles.push({
-                    x: Math.random() * w, // Start random
-                    y: Math.random() * h,
-                    targetX: centerX + Math.cos(i) * 200, // Dummy target circle
-                    targetY: centerY + Math.sin(i) * 200,
-                    size: Math.random() * 2 + 1
-                });
-            }
-
-            // Draw Loop
-            function drawP() {
-                ctx.clearRect(0, 0, w, h);
-                ctx.fillStyle = "#000"; // Black particles on white
-
-                particles.forEach(p => {
-                    ctx.beginPath();
-                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-                    ctx.fill();
-                });
-                requestAnimationFrame(drawP);
-            }
-            drawP();
-
-            // GSAP Logic: Move from Random to Organized
-            // We want them to start scattered and assemble when we scroll here
-            // Wait, we want them to *start* assembled? Or assemble?
-            // Let's assemble them.
-
-            particles.forEach((p, i) => {
-                // Calculate target shape (A circle)
-                const angle = (i / particles.length) * Math.PI * 2;
-                const r = 150;
-
-                gsap.to(p, {
-                    x: centerX + Math.cos(angle) * r,
-                    y: centerY + Math.sin(angle) * r,
-                    duration: 1,
-                    scrollTrigger: {
-                        trigger: "#community",
-                        start: "top center",
-                        end: "center center",
-                        scrub: 2
-                    }
-                });
-            });
-        }
-
-    </script>
-
-    <!-- WebGL Bootstrap -->
+    <!-- WebGL Bootstrap & Unified Logic -->
     <script src="webgl_manager.js"></script>
     <script src="hero_particles.js"></script>
     <script src="vault_visualizer.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // 1. Hero Particles
-            const heroWebgl = new WebGLManager('hero-webgl');
-            const hero = new HeroParticles();
-            heroWebgl.addVisualizer(hero);
+            gsap.registerPlugin(ScrollTrigger);
 
-            // 2. Vault Visualizer
+            // --- 0. LENIS SMOOTH SCROLL ---
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                smooth: true
+            });
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+
+            // --- 1. HERO & THREAD ---
+            ScrollTrigger.create({
+                trigger: "#hero-static",
+                start: "top top",
+                end: "+=500",
+                pin: true,
+                scrub: true
+            });
+
+            // Trust Thread SVG
+            const threadSvg = document.querySelector('.thread-svg');
+            const threadPath = document.querySelector('.thread-line');
+            function updateThread() {
+                const w = window.innerWidth;
+                const h = window.innerHeight;
+                let d = `M${w / 2},0 `;
+                d += `C${w / 2 + 100},${h / 2} ${w / 2 - 100},${h / 2} ${w / 2},${h} `;
+                d += `C${w / 2 + 200},${h + h / 2} ${w / 2 - 200},${h + h / 2} ${w / 2},${h * 2} `;
+                d += `C${w / 2 + 100},${h * 2 + h / 2} ${w / 2 - 100},${h * 2 + h / 2} ${w / 2},${h * 3} `;
+                d += `C${w / 2},${h * 3 + h / 2} ${w / 2},${h * 4} ${w / 2},${h * 4} `;
+                threadPath.setAttribute('d', d);
+                const len = threadPath.getTotalLength();
+                threadPath.style.strokeDasharray = len;
+                threadPath.style.strokeDashoffset = len;
+                gsap.to(threadPath, {
+                    strokeDashoffset: 0,
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: "body",
+                        start: "top top",
+                        end: "bottom bottom",
+                        scrub: 1
+                    }
+                });
+            }
+            window.addEventListener('resize', updateThread);
+            setTimeout(updateThread, 100);
+
+            // --- 2. ORBITAL CYCLES ---
+            const sun = document.querySelector('.sun-core');
+            gsap.to(sun, {
+                scale: 50,
+                opacity: 0,
+                ease: "power2.inOut",
+                scrollTrigger: {
+                    trigger: "#cycles",
+                    start: "top top",
+                    end: "+=2000",
+                    scrub: true,
+                    pin: true
+                }
+            });
+            gsap.to('.hero-content', {
+                opacity: 0,
+                scale: 0.8,
+                scrollTrigger: {
+                    trigger: "#cycles",
+                    start: "center center",
+                    end: "+=2000",
+                    scrub: true
+                }
+            });
+
+            // --- 3. VERIFICATION (Ledger) ---
+            const lensSection = document.getElementById('verification');
+            const lensCursor = document.querySelector('.lens-cursor');
+            const hiddenLayer = document.querySelector('.hidden-layer');
+            if (lensSection && lensCursor) {
+                lensSection.addEventListener('mouseenter', () => {
+                    lensCursor.style.display = 'block';
+                    gsap.to(hiddenLayer, { opacity: 0.15, duration: 0.5 });
+                });
+                lensSection.addEventListener('mouseleave', () => {
+                    lensCursor.style.display = 'none';
+                    gsap.to(hiddenLayer, { opacity: 0, duration: 0.5 });
+                });
+                lensSection.addEventListener('mousemove', (e) => {
+                    gsap.to(lensCursor, {
+                        x: e.clientX,
+                        y: e.clientY,
+                        duration: 0.1,
+                        ease: "power2.out"
+                    });
+                });
+            }
+            gsap.utils.toArray(".ledger-row").forEach((row, i) => {
+                gsap.to(row, {
+                    x: i % 2 === 0 ? "10%" : "-10%",
+                    scrollTrigger: {
+                        trigger: "#verification",
+                        start: "top bottom",
+                        end: "bottom top",
+                        scrub: true
+                    }
+                });
+            });
+
+            // --- 4. COORDINATION (Network) ---
+            {
+                const canvas = document.createElement('canvas');
+                canvas.style.position = "absolute";
+                canvas.style.inset = "0";
+                const ctx = canvas.getContext('2d');
+                const networkBg = document.getElementById('networkBg');
+                if (networkBg) {
+                    networkBg.innerHTML = '';
+                    networkBg.appendChild(canvas);
+                    let w, h;
+                    function resize() {
+                        w = canvas.width = networkBg.offsetWidth;
+                        h = canvas.height = networkBg.offsetHeight;
+                    }
+                    window.addEventListener('resize', resize);
+                    resize();
+                    const nodes = [];
+                    for (let i = 0; i < 40; i++) {
+                        nodes.push({
+                            x: Math.random() * w,
+                            y: Math.random() * h,
+                            vx: (Math.random() - 0.5) * 0.5,
+                            vy: (Math.random() - 0.5) * 0.5
+                        });
+                    }
+                    function draw() {
+                        ctx.clearRect(0, 0, w, h);
+                        ctx.fillStyle = '#ffcfcf';
+                        ctx.strokeStyle = 'rgba(255, 59, 48, 0.15)';
+                        nodes.forEach(node => {
+                            node.x += node.vx;
+                            node.y += node.vy;
+                            if (node.x < 0 || node.x > w) node.vx *= -1;
+                            if (node.y < 0 || node.y > h) node.vy *= -1;
+                            ctx.beginPath();
+                            ctx.arc(node.x, node.y, 2, 0, Math.PI * 2);
+                            ctx.fill();
+                            nodes.forEach(other => {
+                                const d = Math.hypot(node.x - other.x, node.y - other.y);
+                                if (d < 150) {
+                                    ctx.beginPath();
+                                    ctx.moveTo(node.x, node.y);
+                                    ctx.lineTo(other.x, other.y);
+                                    ctx.stroke();
+                                }
+                            });
+                        });
+                        requestAnimationFrame(draw);
+                    }
+                    draw();
+                }
+            }
+
+            // --- 5. VAULT VISUALIZER (Inserted Here) ---
             const vaultWebgl = new WebGLManager('vault-webgl');
             const vault = new VaultVisualizer();
             vaultWebgl.addVisualizer(vault);
-
-            // ScrollTrigger for Vault Camera Movement
             ScrollTrigger.create({
                 trigger: "#vault",
                 start: "top top",
@@ -444,6 +338,69 @@
                     vault.updateCamera(vaultWebgl.camera, self.progress);
                 }
             });
+
+            // --- 6. COMMUNITY PARTICLES (Finale) ---
+            {
+                const canvas = document.getElementById('particleCanvas');
+                const ctx = canvas.getContext('2d');
+                let w, h;
+                function resizeP() {
+                    w = canvas.width = window.innerWidth;
+                    h = canvas.height = window.innerHeight;
+                }
+                window.addEventListener('resize', resizeP);
+                resizeP();
+                const particles = [];
+                const centerX = w / 2;
+                const centerY = h / 2;
+                for (let i = 0; i < 150; i++) {
+                    particles.push({
+                        x: Math.random() * w,
+                        y: Math.random() * h,
+                        targetX: centerX + Math.cos(i) * 200,
+                        targetY: centerY + Math.sin(i) * 200,
+                        size: Math.random() * 2 + 1
+                    });
+                }
+                function drawP() {
+                    ctx.clearRect(0, 0, w, h);
+                    ctx.fillStyle = "#000";
+                    particles.forEach(p => {
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                        ctx.fill();
+                    });
+                    requestAnimationFrame(drawP);
+                }
+                drawP();
+
+                // GSAP Logic
+                particles.forEach((p, i) => {
+                    const angle = (i / particles.length) * Math.PI * 2;
+                    const r = 150;
+                    gsap.to(p, {
+                        x: centerX + Math.cos(angle) * r,
+                        y: centerY + Math.sin(angle) * r,
+                        duration: 1,
+                        scrollTrigger: {
+                            trigger: "#community",
+                            start: "top center",
+                            end: "center center",
+                            scrub: 2
+                        }
+                    });
+                });
+            }
+
+            // --- 7. HERO PARTICLES (Background) ---
+            const heroWebgl = new WebGLManager('hero-webgl');
+            const hero = new HeroParticles();
+            heroWebgl.addVisualizer(hero);
+            
+            // --- FINAL REFRESH ---
+             setTimeout(() => {
+                ScrollTrigger.refresh();
+             }, 500);
         });
     </script>
 </body>
