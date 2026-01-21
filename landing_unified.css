@@ -283,43 +283,34 @@ html.lenis {
 
 /* --- SECTION 1: STATIC HERO (Believe in Tomorrow) --- */
 .hero-static {
-    position: relative;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    /* Ensure WebGL fits inside */
+    background: #000;
     overflow: hidden;
-    scroll-snap-align: start;
 }
 
 .hero-bg {
+    /* Removed image, kept overlay logic if needed */
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
+    pointer-events: none;
     z-index: 1;
 }
 
 .hero-bg-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
     display: none;
-    /* Replaced by WebGL */
 }
 
 #hero-webgl {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    /* Match previous hero-bg z-index */
-    background: radial-gradient(circle at center, #1a0505 0%, #000 80%);
-    /* Base gradient */
+    inset: 0;
+    z-index: 0;
+    /* Removed pointer-events: none to allow interaction if needed,
+       but hero text sits on top so we might need z-index tuning */
 }
 
 .overlay {
@@ -334,12 +325,11 @@ html.lenis {
 
 .hero-static-content {
     position: relative;
-    z-index: 10;
+    z-index: 2;
+    /* Sit above WebGL */
     text-align: center;
     max-width: 800px;
-    /* Match index.html */
-    margin-top: 40px;
-    /* Match index.html */
+    padding: 0 20px;
 }
 
 /* Specific Hero Typography from index.html */
