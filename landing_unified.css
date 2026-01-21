@@ -546,15 +546,43 @@ body {
     opacity: 0.3;
 }
 
+/* --- REFRACTIVE GLASS UTILITY --- */
+.refractive-glass {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(24px) saturate(140%);
+    -webkit-backdrop-filter: blur(24px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    /* Fine inner border */
+    position: relative;
+}
+
+/* Chromatic/Prism Border Effect via pseudo-element */
+.refractive-glass::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.02);
+    z-index: 2;
+}
+
 .glass-panel {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    /* Inherits refractive glass traits manually for now to keep class names clean in HTML if we want */
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(30px) saturate(150%);
+    /* Deeper blur for main panel */
+    -webkit-backdrop-filter: blur(30px) saturate(150%);
     padding: 4rem;
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow:
+        0 30px 60px rgba(0, 0, 0, 0.5),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05);
     z-index: 15;
-    /* Above hidden layer */
 }
 
 /* --- SECTION 3: COORDINATION (Network) --- */
