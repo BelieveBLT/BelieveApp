@@ -284,6 +284,13 @@
             </div>
         </div>
 
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="footer-content">
+                <p>&copy; 2026 Believe Trust. All rights reserved.</p>
+            </div>
+        </footer>
+
     </div>
 
     <script src="audio_manager.js"></script>
@@ -308,17 +315,17 @@
         // We pin the container of the address box to showcase it
         ScrollTrigger.create({
             trigger: ".contribution-box",
-            start: "center center", 
+            start: "center center",
             end: "+=2000", // Long pin to ensure they see the address
-            pin: true, 
+            pin: true,
             scrub: true
         });
 
         // Animate elements inside while pinned (Optional polish)
-        gsap.fromTo(".address-box", 
+        gsap.fromTo(".address-box",
             { scale: 0.9, boxShadow: "0 0 0px rgba(197, 164, 126, 0)" },
-            { 
-                scale: 1.05, 
+            {
+                scale: 1.05,
                 boxShadow: "0 0 30px rgba(197, 164, 126, 0.3)",
                 scrollTrigger: {
                     trigger: ".contribution-box",

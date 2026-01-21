@@ -503,3 +503,12 @@ details[open] summary {
         grid-template-columns: 1fr;
     }
 }
+/* Footer */
+.main-footer {
+    padding: 40px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: #444;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+}

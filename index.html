@@ -153,6 +153,13 @@
         </div>
     </section>
 
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Believe Trust. All rights reserved.</p>
+        </div>
+    </footer>
+
     <!-- WebGL Bootstrap & Unified Logic -->
     <script src="webgl_manager.js"></script>
     <script src="hero_particles.js"></script>
@@ -286,7 +293,7 @@
                 canvas.style.inset = "0";
                 const ctx = canvas.getContext('2d');
                 const networkBg = document.getElementById('networkBg');
-                
+
                 // Canvas Init Logic ...
                 if (networkBg) {
                     networkBg.innerHTML = '';
@@ -416,11 +423,11 @@
             const heroWebgl = new WebGLManager('hero-webgl');
             const hero = new HeroParticles();
             heroWebgl.addVisualizer(hero);
-            
+
             // --- FINAL REFRESH ---
-             setTimeout(() => {
+            setTimeout(() => {
                 ScrollTrigger.refresh();
-             }, 500);
+            }, 500);
         });
     </script>
 </body>
