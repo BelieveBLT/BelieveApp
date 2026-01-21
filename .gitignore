@@ -3,3 +3,4 @@ node-v20.10.0-darwin-arm64.tar.gz
 node_modules/
 landing/node_modules/
 node-v20*/
+.vercel
