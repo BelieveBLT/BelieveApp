@@ -304,15 +304,49 @@
         // Register ScrollTrigger
         gsap.registerPlugin(ScrollTrigger);
 
-        // Animations disabled to fix visibility issue
-        // The content will now be static but guaranteed visible
+        // 1. PIN THE CONTRIBUTION BOX (The "Delay")
+        // We pin the container of the address box to showcase it
+        ScrollTrigger.create({
+            trigger: ".contribution-box",
+            start: "center center", 
+            end: "+=2000", // Long pin to ensure they see the address
+            pin: true, 
+            scrub: true
+        });
 
-        /*
-        // Simple Stagger Animation
+        // Animate elements inside while pinned (Optional polish)
+        gsap.fromTo(".address-box", 
+            { scale: 0.9, boxShadow: "0 0 0px rgba(197, 164, 126, 0)" },
+            { 
+                scale: 1.05, 
+                boxShadow: "0 0 30px rgba(197, 164, 126, 0.3)",
+                scrollTrigger: {
+                    trigger: ".contribution-box",
+                    start: "center center",
+                    end: "+=1000", // Halfway through pin
+                    scrub: true,
+                    yoyo: true,
+                    repeat: 1
+                }
+            }
+        );
+
+        // 2. Restore Stagger Animations for other sections
+        gsap.from(".tier-card", {
+            scrollTrigger: {
+                trigger: ".ico-grid",
+                start: "top 80%"
+            },
+            y: 30,
+            opacity: 0,
+            duration: 0.6,
+            stagger: 0.1
+        });
+
         gsap.from(".airdrop-item", {
             scrollTrigger: {
                 trigger: ".airdrop-timeline",
-                start: "top 90%", // Trigger earlier
+                start: "top 90%",
                 toggleActions: "play none none reverse"
             },
             opacity: 0,
@@ -324,7 +358,7 @@
         gsap.from(".phase-card", {
             scrollTrigger: {
                 trigger: ".roadmap-grid",
-                start: "top 90%", // Trigger earlier
+                start: "top 90%",
                 toggleActions: "play none none reverse"
             },
             opacity: 0,
@@ -332,7 +366,6 @@
             stagger: 0.2,
             duration: 0.8
         });
-        */
     </script>
 </body>
 
