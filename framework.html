@@ -26,6 +26,7 @@
 
 <body>
     <div class="noise-overlay"></div>
+    <div class="holographic-pointer"></div>
 
     <!-- Header -->
     <header class="main-header">
@@ -45,8 +46,10 @@
     <main class="framework-layout">
 
         <!-- Sidebar TOC -->
-        <aside class="toc-sidebar">
-            <div class="toc-container">
+        <div class="left-pane">
+            <div class="hologram-overlay"></div>
+            <div class="scan-line"></div>
+            <div class="toc-sticky">
                 <span class="toc-header">THE CONSTITUTION</span>
                 <nav class="toc-links">
                     <span class="toc-subhead">BOOK I: STEWARDSHIP</span>
@@ -74,362 +77,390 @@
                     <a href="#summary" class="toc-link">20 Summary</a>
                 </nav>
             </div>
-        </aside>
+            </aside>
 
-        <!-- Content Area -->
-        <article class="doc-content">
+            <!-- Content Area -->
+            <article class="doc-content">
 
-            <header class="doc-header">
-                <h1 class="doc-title">Mission, Capital Philosophy & Resource Stewardship Framework</h1>
-                <div class="doc-meta">
-                    <span>EST. 2026</span>
-                    <span class="divider">///</span>
-                    <span>VERIFIED DOC</span>
-                </div>
-            </header>
-
-            <span class="book-marker">BOOK I: STEWARDSHIP FRAMEWORK</span>
-
-            <section id="intro" class="doc-section">
-                <span class="section-num">1.0</span>
-                <h2>Introduction</h2>
-                <p>Believe Trust is a mission-driven social and economic coordination framework designed to steward
-                    capital, attention, and human effort toward long-term collective uplift.</p>
-                <p>Unlike extractive systems that prioritize rapid turnover and short-term returns, Believe Trust is
-                    structured around preservation, patience, and productive deployment of resources in service of
-                    community resilience and shared prosperity.</p>
-                <p>This document outlines the core mission of Believe Trust, how capital and resources are
-                    conceptualized, and the principles guiding their management and allocation.</p>
-            </section>
-
-            <hr class="doc-divider">
-
-            <section id="mission" class="doc-section">
-                <span class="section-num">2.0</span>
-                <h2>Core Mission of Believe Trust</h2>
-                <h3>2.1 Primary Mission</h3>
-                <p>The mission of Believe Trust is to build durable systems that enable communities to access
-                    opportunity early, manage resources responsibly, and grow collectively over time.</p>
-                <p>Believe Trust exists to restore trust in shared systems by ensuring that:</p>
-                <ul>
-                    <li>Resources are not wasted or extracted irresponsibly</li>
-                    <li>Participation is aligned with contribution and belief</li>
-                    <li>Long-term sustainability overrides short-term gain</li>
-                </ul>
-
-                <h3>2.2 Supporting Objectives</h3>
-                <p>Believe Trust seeks to:</p>
-                <ul>
-                    <li>Expand early access to opportunity for underserved populations</li>
-                    <li>Replace speculative behavior with structured, belief-based participation</li>
-                    <li>Coordinate collective effort efficiently and transparently</li>
-                    <li>Preserve capital so it compounds socially and economically</li>
-                    <li>Encourage responsible stewardship rather than consumption</li>
-                </ul>
-            </section>
-
-            <hr class="doc-divider">
-
-            <section id="capital" class="doc-section">
-                <span class="section-num">3.0</span>
-                <h2>Definition of Capital Within Believe Trust</h2>
-                <p>Believe Trust recognizes capital as multidimensional, not purely financial.</p>
-
-                <h3>3.1 Forms of Capital</h3>
-                <p>Believe Trust manages and coordinates the following forms of capital:</p>
-                <div class="capital-grid">
-                    <div class="capital-item">
-                        <h4>1. Financial Capital</h4>
-                        <p>Funds, reserves, and monetary resources used to support infrastructure, operations, and
-                            community initiatives.</p>
+                <header class="doc-header">
+                    <h1 class="doc-title">Mission, Capital Philosophy & Resource Stewardship Framework</h1>
+                    <div class="doc-meta">
+                        <span>EST. 2026</span>
+                        <span class="divider">///</span>
+                        <span>VERIFIED DOC</span>
                     </div>
-                    <div class="capital-item">
-                        <h4>2. Social Capital</h4>
-                        <p>Trust, reputation, credibility, and relationships among participants.</p>
-                    </div>
-                    <div class="capital-item">
-                        <h4>3. Human Capital</h4>
-                        <p>Time, skills, labor, creativity, and leadership contributed by participants.</p>
-                    </div>
-                    <div class="capital-item">
-                        <h4>4. Attention Capital</h4>
-                        <p>Collective focus, visibility, and narrative energy directed toward shared goals.</p>
-                    </div>
-                    <div class="capital-item">
-                        <h4>5. Cultural Capital</h4>
-                        <p>Identity, symbolism, shared language, rituals, and collective meaning.</p>
-                    </div>
-                </div>
-                <p class="summary-text">All five forms are treated as finite resources that must be protected and
-                    deployed responsibly.</p>
-            </section>
+                </header>
 
-            <hr class="doc-divider">
+                <span class="book-marker">BOOK I: STEWARDSHIP FRAMEWORK</span>
 
-            <section id="philosophy" class="doc-section">
-                <span class="section-num">4.0</span>
-                <h2>Capital Management Philosophy</h2>
-                <h3>4.1 Preservation First</h3>
-                <p>Believe Trust prioritizes capital preservation before capital expansion. Resources are managed with
-                    the assumption that capital is harder to rebuild than to deploy, trust is costly to restore, and
-                    sustainability requires restraint. As such, Believe Trust avoids overextension, aggressive
-                    depletion, and bounded commitments.</p>
+                <section id="intro" class="doc-section">
+                    <span class="section-num">1.0</span>
+                    <h2>Introduction</h2>
+                    <p>Believe Trust is a mission-driven social and economic coordination framework designed to steward
+                        capital, attention, and human effort toward long-term collective uplift.</p>
+                    <p>Unlike extractive systems that prioritize rapid turnover and short-term returns, Believe Trust is
+                        structured around preservation, patience, and productive deployment of resources in service of
+                        community resilience and shared prosperity.</p>
+                    <p>This document outlines the core mission of Believe Trust, how capital and resources are
+                        conceptualized, and the principles guiding their management and allocation.</p>
+                </section>
 
-                <h3>4.2 Long-Term Orientation</h3>
-                <p>Capital deployment decisions are evaluated based on multi-year impact, community benefit, and
-                    alignment with mission. Short-term efficiency is never prioritized over long-term stability.</p>
+                <hr class="doc-divider">
 
-                <h3>4.3 Productive Use Over Idle Accumulation</h3>
-                <p>Capital should enable systems, strengthen infrastructure, support contributors, and reinforce
-                    resilience. Idle hoarding without purpose is discouraged, just as reckless spending is avoided.</p>
-            </section>
-
-            <hr class="doc-divider">
-
-            <section id="allocation" class="doc-section">
-                <span class="section-num">5.0</span>
-                <h2>Resource Allocation Principles</h2>
-                <ul class="principles-list">
-                    <li>
-                        <strong>5.1 Mission Alignment:</strong> All resource allocation must directly support community
-                        growth, infrastructure stability, participant enablement, or system resilience.
-                    </li>
-                    <li>
-                        <strong>5.2 Transparency:</strong> Resource flows are designed to be observable, auditable, and
-                        explainable to participants. Opacity is a risk factor.
-                    </li>
-                    <li>
-                        <strong>5.3 Gradual Deployment:</strong> Resources are released progressively to reduce
-                        misallocation risk and allow feedback-based adjustments.
-                    </li>
-                    <li>
-                        <strong>5.4 Contribution-Based Prioritization:</strong> Access to resources is weighted toward
-                        demonstrated contribution, long-term participation, and reliability.
-                    </li>
-                </ul>
-            </section>
-
-            <hr class="doc-divider">
-
-            <section id="financial" class="doc-section">
-                <span class="section-num">6.0</span>
-                <h2>Financial Capital Management</h2>
-                <p><strong>6.1 Operational Reserves:</strong> Believe Trust maintains reserves to ensure continuity of
-                    operations, infrastructure maintenance, and risk mitigation. Reserves are treated as safeguards, not
-                    spending pools.</p>
-                <p><strong>6.2 Budget Discipline:</strong> Budgets favor essentials over expansion and avoid dependency
-                    on constant inflows. Spending is evaluated against durability, not visibility.</p>
-                <p><strong>6.3 Risk Management:</strong> Believe Trust avoids high-leverage strategies, speculative
-                    exposure, and dependencies on unstable inputs.</p>
-            </section>
-
-            <hr class="doc-divider">
-
-            <section id="stewardship" class="doc-section">
-                <span class="section-num">7.0</span>
-                <h2>Human & Social Resource Stewardship</h2>
-                <h3>7.1 Respect for Participant Time</h3>
-                <p>Participants’ time and effort are treated as scarce resources. Systems are designed to minimize
-                    unnecessary complexity, reward meaningful contribution, and avoid exploitative engagement loops.</p>
-                <h3>7.2 Reputation as a Resource</h3>
-                <p>Reputation within Believe Trust accumulates slowly, is protected intentionally, and cannot be
-                    purchased or bypassed. This ensures long-term integrity of the system.</p>
-            </section>
-
-            <hr class="doc-divider">
-
-            <section id="narrative" class="doc-section">
-                <span class="section-num">8.0</span>
-                <h2>Attention & Narrative Management</h2>
-                <p>Believe Trust treats attention as a form of capital that must be deployed carefully. Narratives are
-                    grounded in reality, avoid exaggerated promises, and align with long-term expectations. Attention is
-                    not extracted through hype, but earned through consistency.</p>
-            </section>
-
-            <hr class="doc-divider">
-
-            <section id="culture" class="doc-section">
-                <span class="section-num">9.0</span>
-                <h2>Cultural Resource Management</h2>
-                <p>Cultural elements are stewarded to strengthen identity, foster belonging, and reinforce patience and
-                    belief. Cultural dilution for short-term appeal is avoided.</p>
-            </section>
-
-            <hr class="doc-divider">
-
-            <section id="governance" class="doc-section">
-                <span class="section-num">10.0</span>
-                <h2>Governance of Resources</h2>
-                <p><strong>10.1 Rule-Based Oversight:</strong> Resource decisions are governed by documented principles
-                    and collective accountability. Discretionary or opaque control is minimized.</p>
-                <p><strong>10.2 Progressive Decentralization:</strong> As Believe Trust matures, stewardship
-                    responsibilities expand outward, community participation increases, and central control diminishes.
-                </p>
-            </section>
-
-            <hr class="doc-divider">
-
-            <section id="ethics" class="doc-section">
-                <span class="section-num">11.0</span>
-                <h2>Ethical Constraints</h2>
-                <div class="warning-box">
-                    <p>Believe Trust explicitly rejects:</p>
+                <section id="mission" class="doc-section">
+                    <span class="section-num">2.0</span>
+                    <h2>Core Mission of Believe Trust</h2>
+                    <h3>2.1 Primary Mission</h3>
+                    <p>The mission of Believe Trust is to build durable systems that enable communities to access
+                        opportunity early, manage resources responsibly, and grow collectively over time.</p>
+                    <p>Believe Trust exists to restore trust in shared systems by ensuring that:</p>
                     <ul>
-                        <li>Exploitative capital extraction</li>
-                        <li>Asymmetric information advantage</li>
-                        <li>Hidden obligations or dependencies</li>
+                        <li>Resources are not wasted or extracted irresponsibly</li>
+                        <li>Participation is aligned with contribution and belief</li>
+                        <li>Long-term sustainability overrides short-term gain</li>
                     </ul>
-                    <p>Ethical alignment is considered non-negotiable.</p>
-                </div>
-            </section>
 
-            <hr class="doc-divider">
-
-            <section id="longterm" class="doc-section">
-                <span class="section-num">12.0</span>
-                <h2>Long-Term Stewardship Goal</h2>
-                <p>The ultimate goal of Believe Trust is to become a self-sustaining trust framework where capital
-                    supports people, not the reverse; resources circulate productively; communities retain agency; and
-                    trust compounds over generations.</p>
-            </section>
-
-            <div class="book-break">
-                <span class="book-marker">BOOK II: CAPITAL ACCESS PROTOCOL</span>
-            </div>
-
-            <section id="capital-purpose" class="doc-section">
-                <span class="section-num">13.0</span>
-                <h2>Purpose of Capital Access</h2>
-                <p>Believe Trust does not treat capital as an end goal. Capital is a tool used to unlock productivity,
-                    stability, and long-term participation.</p>
-                <p>The primary objective is to prevent forced exits due to short-term needs, enable believers to remain
-                    committed, and channel resources toward productive, community-aligned use cases. Capital access is
-                    structured, conditional, and responsibility-based.</p>
-            </section>
-
-            <hr class="doc-divider">
-
-            <section id="believer" class="doc-section">
-                <span class="section-num">14.0</span>
-                <h2>Who Qualifies as a Believer</h2>
-                <p>A Believer is not defined by wealth or status, but by demonstrated alignment. Qualification is based
-                    on duration of participation, consistency of engagement, and reputation within the system. Belief
-                    must be observable over time before capital access is granted.</p>
-            </section>
-
-            <hr class="doc-divider">
-
-            <section id="loans" class="doc-section">
-                <span class="section-num">15.0</span>
-                <h2>Access to Capital Through Loans</h2>
-                <h3>15.1 Philosophy of Lending</h3>
-                <p>Loans are designed to provide liquidity without disengagement, preserving long-term alignment and
-                    reducing desperation-driven decisions. This is access-based lending, not profit-maximizing lending.
-                </p>
-
-                <h3>15.2 Nature of Loans</h3>
-                <p>Loans are collateral-aware (backed by trust/reputation), non-predatory, rule-based, and
-                    purpose-conscious. They are not intended for reckless leverage or speculation.</p>
-
-                <h3>15.3 Eligibility Criteria</h3>
-                <ul>
-                    <li><strong>Belief Tenure:</strong> Longer participation unlocks higher thresholds.</li>
-                    <li><strong>Reputation Score:</strong> Reliability, contribution, and historical behavior.</li>
-                    <li><strong>Participation Consistency:</strong> Gaps or opportunistic behavior reduce access.</li>
-                    <li><strong>Community Alignment:</strong> Contribution increases trust capacity.</li>
-                </ul>
-
-                <h3>15.4 Loan-to-Trust Ratios</h3>
-                <p>Access increases gradually. Early-stage believers access conservative limits; long-term believers
-                    access higher proportions. This encourages patience and protects system stability.</p>
-
-                <h3>15.5 Use of Loaned Capital</h3>
-                <p>Loans are intended for personal liquidity, business productivity, emergency support, or community
-                    initiatives. Systemically risky use cases are restricted.</p>
-
-                <h3>15.6 Repayment & Accountability</h3>
-                <p>Repayment is clearly defined and transparent. Failure to repay does not result in punitive extraction
-                    but reduces future access and reputation standing.</p>
-            </section>
-
-            <hr class="doc-divider">
-
-            <section id="partnerships" class="doc-section">
-                <span class="section-num">16.0</span>
-                <h2>Strategic Partnerships</h2>
-                <p>Believe Trust collaborates with aligned organizations to expand capital availability and service
-                    access.</p>
-
-                <h3>16.1 Partner Access Methods</h3>
-                <ul>
-                    <li><strong>Preferential Access Programs:</strong> Early access based on trust credentials.</li>
-                    <li><strong>Reputation-Based Qualification:</strong> Trust score acts as a credibility signal.</li>
-                    <li><strong>Co-Sponsored Loan Pools:</strong> Shared risk capital.</li>
-                </ul>
-
-                <h3>16.2 Trust as a Credential</h3>
-                <p>For believers, this means access without traditional barriers and recognition of non-financial
-                    contribution. For partners, it means reduced due diligence regarding character.</p>
-            </section>
-
-            <hr class="doc-divider">
-
-            <section id="risk" class="doc-section">
-                <span class="section-num">17.0</span>
-                <h2>Risk Management & Capital Protection</h2>
-                <p><strong>17.1 Controlled Exposure:</strong> Capital access is capped, staggered, and continuously
-                    reassessed to prevent cascading failures.</p>
-                <p><strong>17.2 Shared Risk:</strong> Risk is distributed across participants, partners, and the system.
-                </p>
-                <p><strong>17.3 Feedback Loops:</strong> Loan terms evolve based on repayment behavior and health.</p>
-            </section>
-
-            <hr class="doc-divider">
-
-            <section id="capital-ethics" class="doc-section">
-                <span class="section-num">18.0</span>
-                <h2>Ethical Constraints on Capital</h2>
-                <div class="warning-box">
-                    <p>Believe Trust explicitly avoids:</p>
+                    <h3>2.2 Supporting Objectives</h3>
+                    <p>Believe Trust seeks to:</p>
                     <ul>
-                        <li>Predatory interest structures</li>
-                        <li>Hidden fees or obligations</li>
-                        <li>Forced liquidation or coercive recovery</li>
-                        <li>Capital access tied to blind promotion</li>
+                        <li>Expand early access to opportunity for underserved populations</li>
+                        <li>Replace speculative behavior with structured, belief-based participation</li>
+                        <li>Coordinate collective effort efficiently and transparently</li>
+                        <li>Preserve capital so it compounds socially and economically</li>
+                        <li>Encourage responsible stewardship rather than consumption</li>
                     </ul>
+                </section>
+
+                <hr class="doc-divider">
+
+                <section id="capital" class="doc-section">
+                    <span class="section-num">3.0</span>
+                    <h2>Definition of Capital Within Believe Trust</h2>
+                    <p>Believe Trust recognizes capital as multidimensional, not purely financial.</p>
+
+                    <h3>3.1 Forms of Capital</h3>
+                    <p>Believe Trust manages and coordinates the following forms of capital:</p>
+                    <div class="capital-grid">
+                        <div class="capital-item">
+                            <h4>1. Financial Capital</h4>
+                            <p>Funds, reserves, and monetary resources used to support infrastructure, operations, and
+                                community initiatives.</p>
+                        </div>
+                        <div class="capital-item">
+                            <h4>2. Social Capital</h4>
+                            <p>Trust, reputation, credibility, and relationships among participants.</p>
+                        </div>
+                        <div class="capital-item">
+                            <h4>3. Human Capital</h4>
+                            <p>Time, skills, labor, creativity, and leadership contributed by participants.</p>
+                        </div>
+                        <div class="capital-item">
+                            <h4>4. Attention Capital</h4>
+                            <p>Collective focus, visibility, and narrative energy directed toward shared goals.</p>
+                        </div>
+                        <div class="capital-item">
+                            <h4>5. Cultural Capital</h4>
+                            <p>Identity, symbolism, shared language, rituals, and collective meaning.</p>
+                        </div>
+                    </div>
+                    <p class="summary-text">All five forms are treated as finite resources that must be protected and
+                        deployed responsibly.</p>
+                </section>
+
+                <hr class="doc-divider">
+
+                <section id="philosophy" class="doc-section">
+                    <span class="section-num">4.0</span>
+                    <h2>Capital Management Philosophy</h2>
+                    <h3>4.1 Preservation First</h3>
+                    <p>Believe Trust prioritizes capital preservation before capital expansion. Resources are managed
+                        with
+                        the assumption that capital is harder to rebuild than to deploy, trust is costly to restore, and
+                        sustainability requires restraint. As such, Believe Trust avoids overextension, aggressive
+                        depletion, and bounded commitments.</p>
+
+                    <h3>4.2 Long-Term Orientation</h3>
+                    <p>Capital deployment decisions are evaluated based on multi-year impact, community benefit, and
+                        alignment with mission. Short-term efficiency is never prioritized over long-term stability.</p>
+
+                    <h3>4.3 Productive Use Over Idle Accumulation</h3>
+                    <p>Capital should enable systems, strengthen infrastructure, support contributors, and reinforce
+                        resilience. Idle hoarding without purpose is discouraged, just as reckless spending is avoided.
+                    </p>
+                </section>
+
+                <hr class="doc-divider">
+
+                <section id="allocation" class="doc-section">
+                    <span class="section-num">5.0</span>
+                    <h2>Resource Allocation Principles</h2>
+                    <ul class="principles-list">
+                        <li>
+                            <strong>5.1 Mission Alignment:</strong> All resource allocation must directly support
+                            community
+                            growth, infrastructure stability, participant enablement, or system resilience.
+                        </li>
+                        <li>
+                            <strong>5.2 Transparency:</strong> Resource flows are designed to be observable, auditable,
+                            and
+                            explainable to participants. Opacity is a risk factor.
+                        </li>
+                        <li>
+                            <strong>5.3 Gradual Deployment:</strong> Resources are released progressively to reduce
+                            misallocation risk and allow feedback-based adjustments.
+                        </li>
+                        <li>
+                            <strong>5.4 Contribution-Based Prioritization:</strong> Access to resources is weighted
+                            toward
+                            demonstrated contribution, long-term participation, and reliability.
+                        </li>
+                    </ul>
+                </section>
+
+                <hr class="doc-divider">
+
+                <section id="financial" class="doc-section">
+                    <span class="section-num">6.0</span>
+                    <h2>Financial Capital Management</h2>
+                    <p><strong>6.1 Operational Reserves:</strong> Believe Trust maintains reserves to ensure continuity
+                        of
+                        operations, infrastructure maintenance, and risk mitigation. Reserves are treated as safeguards,
+                        not
+                        spending pools.</p>
+                    <p><strong>6.2 Budget Discipline:</strong> Budgets favor essentials over expansion and avoid
+                        dependency
+                        on constant inflows. Spending is evaluated against durability, not visibility.</p>
+                    <p><strong>6.3 Risk Management:</strong> Believe Trust avoids high-leverage strategies, speculative
+                        exposure, and dependencies on unstable inputs.</p>
+                </section>
+
+                <hr class="doc-divider">
+
+                <section id="stewardship" class="doc-section">
+                    <span class="section-num">7.0</span>
+                    <h2>Human & Social Resource Stewardship</h2>
+                    <h3>7.1 Respect for Participant Time</h3>
+                    <p>Participants’ time and effort are treated as scarce resources. Systems are designed to minimize
+                        unnecessary complexity, reward meaningful contribution, and avoid exploitative engagement loops.
+                    </p>
+                    <h3>7.2 Reputation as a Resource</h3>
+                    <p>Reputation within Believe Trust accumulates slowly, is protected intentionally, and cannot be
+                        purchased or bypassed. This ensures long-term integrity of the system.</p>
+                </section>
+
+                <hr class="doc-divider">
+
+                <section id="narrative" class="doc-section">
+                    <span class="section-num">8.0</span>
+                    <h2>Attention & Narrative Management</h2>
+                    <p>Believe Trust treats attention as a form of capital that must be deployed carefully. Narratives
+                        are
+                        grounded in reality, avoid exaggerated promises, and align with long-term expectations.
+                        Attention is
+                        not extracted through hype, but earned through consistency.</p>
+                </section>
+
+                <hr class="doc-divider">
+
+                <section id="culture" class="doc-section">
+                    <span class="section-num">9.0</span>
+                    <h2>Cultural Resource Management</h2>
+                    <p>Cultural elements are stewarded to strengthen identity, foster belonging, and reinforce patience
+                        and
+                        belief. Cultural dilution for short-term appeal is avoided.</p>
+                </section>
+
+                <hr class="doc-divider">
+
+                <section id="governance" class="doc-section">
+                    <span class="section-num">10.0</span>
+                    <h2>Governance of Resources</h2>
+                    <p><strong>10.1 Rule-Based Oversight:</strong> Resource decisions are governed by documented
+                        principles
+                        and collective accountability. Discretionary or opaque control is minimized.</p>
+                    <p><strong>10.2 Progressive Decentralization:</strong> As Believe Trust matures, stewardship
+                        responsibilities expand outward, community participation increases, and central control
+                        diminishes.
+                    </p>
+                </section>
+
+                <hr class="doc-divider">
+
+                <section id="ethics" class="doc-section">
+                    <span class="section-num">11.0</span>
+                    <h2>Ethical Constraints</h2>
+                    <div class="warning-box">
+                        <p>Believe Trust explicitly rejects:</p>
+                        <ul>
+                            <li>Exploitative capital extraction</li>
+                            <li>Asymmetric information advantage</li>
+                            <li>Hidden obligations or dependencies</li>
+                        </ul>
+                        <p>Ethical alignment is considered non-negotiable.</p>
+                    </div>
+                </section>
+
+                <hr class="doc-divider">
+
+                <section id="longterm" class="doc-section">
+                    <span class="section-num">12.0</span>
+                    <h2>Long-Term Stewardship Goal</h2>
+                    <p>The ultimate goal of Believe Trust is to become a self-sustaining trust framework where capital
+                        supports people, not the reverse; resources circulate productively; communities retain agency;
+                        and
+                        trust compounds over generations.</p>
+                </section>
+
+                <div class="book-break">
+                    <span class="book-marker">BOOK II: CAPITAL ACCESS PROTOCOL</span>
                 </div>
-            </section>
 
-            <hr class="doc-divider">
+                <section id="capital-purpose" class="doc-section">
+                    <span class="section-num">13.0</span>
+                    <h2>Purpose of Capital Access</h2>
+                    <p>Believe Trust does not treat capital as an end goal. Capital is a tool used to unlock
+                        productivity,
+                        stability, and long-term participation.</p>
+                    <p>The primary objective is to prevent forced exits due to short-term needs, enable believers to
+                        remain
+                        committed, and channel resources toward productive, community-aligned use cases. Capital access
+                        is
+                        structured, conditional, and responsibility-based.</p>
+                </section>
 
-            <section id="capital-impact" class="doc-section">
-                <span class="section-num">19.0</span>
-                <h2>Long-Term Impact</h2>
-                <p>This model enables long-term participation without forced exits, gradual empowerment, and reduced
-                    dependency on exploitative credit systems. Believers are not pressured to choose between survival
-                    today and belief in tomorrow.</p>
-            </section>
+                <hr class="doc-divider">
 
-            <hr class="doc-divider">
+                <section id="believer" class="doc-section">
+                    <span class="section-num">14.0</span>
+                    <h2>Who Qualifies as a Believer</h2>
+                    <p>A Believer is not defined by wealth or status, but by demonstrated alignment. Qualification is
+                        based
+                        on duration of participation, consistency of engagement, and reputation within the system.
+                        Belief
+                        must be observable over time before capital access is granted.</p>
+                </section>
 
-            <section id="summary" class="doc-section">
-                <span class="section-num">20.0</span>
-                <h2>Summary</h2>
-                <p>In Believe Trust, capital access is earned, not bought. Loans preserve alignment, partnerships expand
-                    opportunity responsibly, and trust functions as the core collateral.</p>
-                <p>This creates a system where belief unlocks capital, and capital reinforces belief — without
-                    undermining either.</p>
-            </section>
+                <hr class="doc-divider">
 
-            <section class="closing-section">
-                <p>Believe Trust does not aim to be the fastest-growing system.</p>
-                <p>It aims to be one of the most durable, one of the most trusted, and one of the most aligned with
-                    human reality.</p>
-                <p class="final-statement">By managing capital and resources with patience, discipline, and respect,
-                    Believe Trust seeks to prove that long-term belief is the strongest form of wealth.</p>
-            </section>
+                <section id="loans" class="doc-section">
+                    <span class="section-num">15.0</span>
+                    <h2>Access to Capital Through Loans</h2>
+                    <h3>15.1 Philosophy of Lending</h3>
+                    <p>Loans are designed to provide liquidity without disengagement, preserving long-term alignment and
+                        reducing desperation-driven decisions. This is access-based lending, not profit-maximizing
+                        lending.
+                    </p>
 
-        </article>
+                    <h3>15.2 Nature of Loans</h3>
+                    <p>Loans are collateral-aware (backed by trust/reputation), non-predatory, rule-based, and
+                        purpose-conscious. They are not intended for reckless leverage or speculation.</p>
+
+                    <h3>15.3 Eligibility Criteria</h3>
+                    <ul>
+                        <li><strong>Belief Tenure:</strong> Longer participation unlocks higher thresholds.</li>
+                        <li><strong>Reputation Score:</strong> Reliability, contribution, and historical behavior.</li>
+                        <li><strong>Participation Consistency:</strong> Gaps or opportunistic behavior reduce access.
+                        </li>
+                        <li><strong>Community Alignment:</strong> Contribution increases trust capacity.</li>
+                    </ul>
+
+                    <h3>15.4 Loan-to-Trust Ratios</h3>
+                    <p>Access increases gradually. Early-stage believers access conservative limits; long-term believers
+                        access higher proportions. This encourages patience and protects system stability.</p>
+
+                    <h3>15.5 Use of Loaned Capital</h3>
+                    <p>Loans are intended for personal liquidity, business productivity, emergency support, or community
+                        initiatives. Systemically risky use cases are restricted.</p>
+
+                    <h3>15.6 Repayment & Accountability</h3>
+                    <p>Repayment is clearly defined and transparent. Failure to repay does not result in punitive
+                        extraction
+                        but reduces future access and reputation standing.</p>
+                </section>
+
+                <hr class="doc-divider">
+
+                <section id="partnerships" class="doc-section">
+                    <span class="section-num">16.0</span>
+                    <h2>Strategic Partnerships</h2>
+                    <p>Believe Trust collaborates with aligned organizations to expand capital availability and service
+                        access.</p>
+
+                    <h3>16.1 Partner Access Methods</h3>
+                    <ul>
+                        <li><strong>Preferential Access Programs:</strong> Early access based on trust credentials.</li>
+                        <li><strong>Reputation-Based Qualification:</strong> Trust score acts as a credibility signal.
+                        </li>
+                        <li><strong>Co-Sponsored Loan Pools:</strong> Shared risk capital.</li>
+                    </ul>
+
+                    <h3>16.2 Trust as a Credential</h3>
+                    <p>For believers, this means access without traditional barriers and recognition of non-financial
+                        contribution. For partners, it means reduced due diligence regarding character.</p>
+                </section>
+
+                <hr class="doc-divider">
+
+                <section id="risk" class="doc-section">
+                    <span class="section-num">17.0</span>
+                    <h2>Risk Management & Capital Protection</h2>
+                    <p><strong>17.1 Controlled Exposure:</strong> Capital access is capped, staggered, and continuously
+                        reassessed to prevent cascading failures.</p>
+                    <p><strong>17.2 Shared Risk:</strong> Risk is distributed across participants, partners, and the
+                        system.
+                    </p>
+                    <p><strong>17.3 Feedback Loops:</strong> Loan terms evolve based on repayment behavior and health.
+                    </p>
+                </section>
+
+                <hr class="doc-divider">
+
+                <section id="capital-ethics" class="doc-section">
+                    <span class="section-num">18.0</span>
+                    <h2>Ethical Constraints on Capital</h2>
+                    <div class="warning-box">
+                        <p>Believe Trust explicitly avoids:</p>
+                        <ul>
+                            <li>Predatory interest structures</li>
+                            <li>Hidden fees or obligations</li>
+                            <li>Forced liquidation or coercive recovery</li>
+                            <li>Capital access tied to blind promotion</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <hr class="doc-divider">
+
+                <section id="capital-impact" class="doc-section">
+                    <span class="section-num">19.0</span>
+                    <h2>Long-Term Impact</h2>
+                    <p>This model enables long-term participation without forced exits, gradual empowerment, and reduced
+                        dependency on exploitative credit systems. Believers are not pressured to choose between
+                        survival
+                        today and belief in tomorrow.</p>
+                </section>
+
+                <hr class="doc-divider">
+
+                <section id="summary" class="doc-section">
+                    <span class="section-num">20.0</span>
+                    <h2>Summary</h2>
+                    <p>In Believe Trust, capital access is earned, not bought. Loans preserve alignment, partnerships
+                        expand
+                        opportunity responsibly, and trust functions as the core collateral.</p>
+                    <p>This creates a system where belief unlocks capital, and capital reinforces belief — without
+                        undermining either.</p>
+                </section>
+
+                <section class="closing-section">
+                    <p>Believe Trust does not aim to be the fastest-growing system.</p>
+                    <p>It aims to be one of the most durable, one of the most trusted, and one of the most aligned with
+                        human reality.</p>
+                    <p class="final-statement">By managing capital and resources with patience, discipline, and respect,
+                        Believe Trust seeks to prove that long-term belief is the strongest form of wealth.</p>
+                </section>
+
+            </article>
     </main>
 
     <!-- Footer -->
@@ -454,6 +485,24 @@
             requestAnimationFrame(raf);
         }
         requestAnimationFrame(raf);
+
+        // Holographic Pointer Tracking
+        const pointer = document.querySelector('.holographic-pointer');
+        document.addEventListener('mousemove', (e) => {
+            if (pointer) {
+                gsap.to(pointer, {
+                    x: e.clientX,
+                    y: e.clientY,
+                    opacity: 1,
+                    duration: 0.6,
+                    ease: "power2.out"
+                });
+            }
+        });
+
+        document.addEventListener('mouseleave', () => {
+            gsap.to(pointer, { opacity: 0, duration: 0.3 });
+        });
 
         // Highlighting TOC on scroll
         const sections = document.querySelectorAll('.doc-section');

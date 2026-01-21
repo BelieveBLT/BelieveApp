@@ -208,6 +208,11 @@
             const globe = new GlobeVisualizer();
             webgl.addVisualizer(globe);
 
+            // Trigger pulse on click
+            window.addEventListener('mousedown', () => {
+                globe.triggerPulse(0xff3b30); // Red pulse for manual interaction
+            });
+
             // Optional: Mouse interactions to rotate globe
             document.addEventListener('mousemove', (e) => {
                 const x = (e.clientX / window.innerWidth) * 2 - 1;

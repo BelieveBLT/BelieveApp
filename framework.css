@@ -24,13 +24,76 @@ body {
 }
 
 /* Sidebar TOC */
-.toc-sidebar {
-    width: 300px;
-    padding: 60px 40px;
-    border-right: 1px solid var(--border-subtle);
+.left-pane {
+    width: 30%;
+    background: #050505;
+    border-right: 1px solid #1a1a1a;
     position: relative;
-    display: none;
-    /* Mobile first hidden, shown desktop */
+    overflow: hidden;
+}
+
+/* Holographic Scanning Effect */
+.hologram-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+    background: linear-gradient(to bottom,
+            transparent 50%,
+            rgba(197, 164, 126, 0.05) 50%);
+    background-size: 100% 4px;
+    opacity: 0.3;
+}
+
+.scan-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-gold);
+    box-shadow: 0 0 15px var(--accent-gold);
+    opacity: 0.2;
+    z-index: 6;
+    animation: scanVertical 8s linear infinite;
+}
+
+.holographic-pointer {
+    position: fixed;
+    width: 150px;
+    height: 150px;
+    border: 1px solid rgba(197, 164, 126, 0.2);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    background: radial-gradient(circle, rgba(197, 164, 126, 0.05) 0%, transparent 70%);
+}
+
+.holographic-pointer::before {
+    content: 'DECRYPTING...';
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    color: var(--accent-gold);
+    letter-spacing: 2px;
+}
+
+@keyframes scanVertical {
+    0% {
+        top: -10%;
+    }
+
+    100% {
+        top: 110%;
+    }
 }
 
 .toc-container {

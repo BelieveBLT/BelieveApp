@@ -217,6 +217,22 @@ html.lenis {
     box-shadow: 0 10px 20px rgba(255, 255, 255, 0.05);
 }
 
+/* SECTION: VAULT */
+.section-vault {
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.vault-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    pointer-events: none;
+}
+
 /* Shine Effect Utility */
 .shine-effect {
     position: relative;
@@ -656,6 +672,12 @@ html.lenis {
     background: #fff;
     color: #000;
     position: relative;
+}
+
+#vault-webgl {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
 }
 
 .mosaic-grid {

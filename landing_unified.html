@@ -134,7 +134,17 @@
             </div>
         </section>
 
-        <!-- SECTION 4: COMMUNITY - Particle Assembly (Finale) -->
+        <!-- SECTION 4: THE VAULT - 3D Ledger Infrastructure (Expansion) -->
+        <section id="vault" class="section section-vault">
+            <div id="vault-webgl"></div>
+            <div class="content vault-content">
+                <span class="tag">INFRASTRUCTURE</span>
+                <h2 class="title-lg">The Ledger<br>Vault</h2>
+                <p class="text-md">Immutable transparency at every depth.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 5: COMMUNITY - Particle Assembly (Finale) -->
         <section id="community" class="section section-community">
             <canvas id="particleCanvas"></canvas>
             <div class="content comm-content">
@@ -411,12 +421,30 @@
         <!-- WebGL Bootstrap -->
         <script src="webgl_manager.js"></script>
         <script src="hero_particles.js"></script>
+        <script src="vault_visualizer.js"></script>
         <script>
             document.addEventListener('DOMContentLoaded', () => {
-                // Re-use WebGLManager but point to hero container
-                const webgl = new WebGLManager('hero-webgl');
+                // 1. Hero Particles
+                const heroWebgl = new WebGLManager('hero-webgl');
                 const hero = new HeroParticles();
-                webgl.addVisualizer(hero);
+                heroWebgl.addVisualizer(hero);
+
+                // 2. Vault Visualizer
+                const vaultWebgl = new WebGLManager('vault-webgl');
+                const vault = new VaultVisualizer();
+                vaultWebgl.addVisualizer(vault);
+
+                // ScrollTrigger for Vault Camera Movement
+                ScrollTrigger.create({
+                    trigger: "#vault",
+                    start: "top top",
+                    end: "+=3000",
+                    pin: true,
+                    scrub: true,
+                    onUpdate: (self) => {
+                        vault.updateCamera(vaultWebgl.camera, self.progress);
+                    }
+                });
             });
         </script>
     </body>

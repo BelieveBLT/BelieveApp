@@ -53,14 +53,82 @@ class GlobeVisualizer {
 
         // Interaction State
         this.activeRotation = 0.001;
+        this.lastPulse = 0;
+
+        // 4. Pulse Sphere (The Trust Wave)
+        const pulseGeo = new THREE.IcosahedronGeometry(2.1, 2);
+        this.pulseMat = new THREE.MeshBasicMaterial({
+            color: 0xc5a47e,
+            transparent: true,
+            opacity: 0,
+            wireframe: true,
+            blending: THREE.AdditiveBlending
+        });
+        this.pulseSphere = new THREE.Mesh(pulseGeo, this.pulseMat);
+        this.pulseSphere.scale.set(0.1, 0.1, 0.1);
+        this.mesh.add(this.pulseSphere);
+    }
+
+    triggerPulse(color = 0xc5a47e) {
+        this.pulseMat.color.set(color);
+
+        // Reset scale and opacity
+        this.pulseSphere.scale.set(0.8, 0.8, 0.8);
+        this.pulseMat.opacity = 0.6;
+
+        // Animate out
+        gsap.to(this.pulseSphere.scale, {
+            x: 2.5,
+            y: 2.5,
+            z: 2.5,
+            duration: 1.5,
+            ease: "power2.out"
+        });
+        gsap.to(this.pulseMat, {
+            opacity: 0,
+            duration: 1.5,
+            ease: "power2.out"
+        });
+
+        // Flash lines
+        gsap.to(this.lines.material, {
+            opacity: 0.8,
+            duration: 0.2,
+            yoyo: true,
+            repeat: 1
+        });
     }
 
     update() {
-        // Constant slow rotation
-        this.mesh.rotation.y += this.activeRotation;
-        this.mesh.rotation.x += this.activeRotation * 0.5;
+        // 1. Audio Mapping
+        let audioBoost = 0;
+        if (window.audioManager) {
+            const freqData = window.audioManager.getFrequencyData();
+            if (freqData) {
+                // Get average of low frequencies (the drone)
+                let sum = 0;
+                for (let i = 0; i < 10; i++) sum += freqData[i];
+                audioBoost = (sum / 10) / 255; // 0 to 1
+            }
+        }
+
+        // 2. Base Rotation + Audio Influence
+        const rotationSpeed = this.activeRotation + (audioBoost * 0.005);
+        this.mesh.rotation.y += rotationSpeed;
+        this.mesh.rotation.x += rotationSpeed * 0.5;
+
+        // 3. Sub-pulse (micro-scaling based on audio)
+        const scaleBase = 1.0 + (audioBoost * 0.05);
+        this.core.scale.set(scaleBase, scaleBase, scaleBase);
 
         // Particle pulse
         this.particles.rotation.y -= 0.002;
+
+        // Random simulated pulses
+        const now = Date.now();
+        if (now - this.lastPulse > 5000) {
+            this.triggerPulse();
+            this.lastPulse = now + (Math.random() * 3000);
+        }
     }
 }

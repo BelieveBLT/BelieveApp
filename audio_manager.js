@@ -10,6 +10,7 @@ class AudioManager {
         this.gainNode = null;
         this.isMuted = true; // Start muted (autoplay policy)
         this.initialized = false;
+        this.dataArray = null;
     }
 
     init() {
@@ -19,11 +20,16 @@ class AudioManager {
             const AudioContext = window.AudioContext || window.webkitAudioContext;
             this.ctx = new AudioContext();
             this.gainNode = this.ctx.createGain();
-            this.gainNode.connect(this.ctx.destination);
+            this.analyser = this.ctx.createAnalyser();
+            this.analyser.fftSize = 256;
+
+            this.gainNode.connect(this.analyser);
+            this.analyser.connect(this.ctx.destination);
+
             this.gainNode.gain.value = 0.15; // Low master volume
 
             this.initialized = true;
-            console.log("Audio System Initialized");
+            console.log("Audio System Initialized with Analyser");
         } catch (e) {
             console.error("Web Audio API not supported", e);
         }
@@ -128,6 +134,15 @@ class AudioManager {
 
         osc.start();
         osc.stop(this.ctx.currentTime + 0.15);
+    }
+
+    getFrequencyData() {
+        if (!this.initialized || this.isMuted) return null;
+        if (!this.dataArray) {
+            this.dataArray = new Uint8Array(this.analyser.frequencyBinCount);
+        }
+        this.analyser.getByteFrequencyData(this.dataArray);
+        return this.dataArray;
     }
 }
 

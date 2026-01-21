@@ -53,16 +53,29 @@ class HeroParticles {
     }
 
     update() {
-        // Smooth mouse follow
+        // 1. Audio Influence
+        let audioBoost = 0;
+        if (window.audioManager) {
+            const freqData = window.audioManager.getFrequencyData();
+            if (freqData) {
+                let sum = 0;
+                for (let i = 0; i < 20; i++) sum += freqData[i];
+                audioBoost = (sum / 20) / 255;
+            }
+        }
+
+        // 2. Mouse Parallax
         this.mouse.x += (this.targetMouse.x - this.mouse.x) * 0.05;
         this.mouse.y += (this.targetMouse.y - this.mouse.y) * 0.05;
 
-        // Rotate/Move based on mouse (Parallax)
-        this.mesh.rotation.x = this.mouse.y * 0.1; // Tilt
-        this.mesh.rotation.y = this.mouse.x * 0.1; // Pan
+        this.mesh.rotation.x = this.mouse.y * 0.1;
+        this.mesh.rotation.y = this.mouse.x * 0.1;
 
-        // Gentle drift
-        this.mesh.rotation.z += 0.0002;
+        // 3. Motion + Audio Sync
+        this.mesh.rotation.z += 0.0002 + (audioBoost * 0.001);
+
+        // Modulate point size slightly based on audio
+        this.points.material.size = 0.05 + (audioBoost * 0.05);
     }
 
     // Resize handler called by manager
