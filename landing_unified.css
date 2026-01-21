@@ -658,11 +658,27 @@ body {
     }
 
     .nav-links {
-        gap: 15px;
+        gap: 12px;
+        overflow-x: auto;
+        /* Allow horizontal scroll if needed */
+        white-space: nowrap;
+        padding-right: 10px;
+        /* Space for scroll */
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        /* Hide scrollbar Firefox */
+    }
+
+    .nav-links::-webkit-scrollbar {
+        display: none;
+        /* Hide scrollbar Chrome/Safari */
     }
 
     .nav-links a {
-        font-size: 0.7rem;
+        font-size: 0.85rem;
+        /* Increased from 0.7rem for legibility */
+        padding: 8px 0;
+        /* Increase touch height */
     }
 
     /* Hero */

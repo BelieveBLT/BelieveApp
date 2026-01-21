@@ -419,6 +419,7 @@ summary {
     font-size: 1.5rem;
     color: #ccc;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 details[open] summary {
