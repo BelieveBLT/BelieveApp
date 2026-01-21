@@ -271,12 +271,23 @@
             });
 
             // --- 4. COORDINATION (Network) ---
+            // Added Pinning for "Scroll Delay" effect
+            ScrollTrigger.create({
+                trigger: "#coordination",
+                start: "top top",
+                end: "+=1500", // Pin to showcase expanding network
+                pin: true,
+                scrub: true
+            });
+
             {
                 const canvas = document.createElement('canvas');
                 canvas.style.position = "absolute";
                 canvas.style.inset = "0";
                 const ctx = canvas.getContext('2d');
                 const networkBg = document.getElementById('networkBg');
+                
+                // Canvas Init Logic ...
                 if (networkBg) {
                     networkBg.innerHTML = '';
                     networkBg.appendChild(canvas);
@@ -324,7 +335,7 @@
                 }
             }
 
-            // --- 5. VAULT VISUALIZER (Inserted Here) ---
+            // --- 5. VAULT VISUALIZER ---
             const vaultWebgl = new WebGLManager('vault-webgl');
             const vault = new VaultVisualizer();
             vaultWebgl.addVisualizer(vault);
@@ -340,6 +351,15 @@
             });
 
             // --- 6. COMMUNITY PARTICLES (Finale) ---
+            // Added Pinning for "Scroll Delay" effect
+            ScrollTrigger.create({
+                trigger: "#community",
+                start: "top top",
+                end: "+=1500", // Pin to showcase particle assembly
+                pin: true,
+                scrub: true
+            });
+
             {
                 const canvas = document.getElementById('particleCanvas');
                 const ctx = canvas.getContext('2d');
@@ -374,7 +394,7 @@
                 }
                 drawP();
 
-                // GSAP Logic
+                // GSAP Logic (Updated for Pinning)
                 particles.forEach((p, i) => {
                     const angle = (i / particles.length) * Math.PI * 2;
                     const r = 150;
@@ -384,8 +404,8 @@
                         duration: 1,
                         scrollTrigger: {
                             trigger: "#community",
-                            start: "top center",
-                            end: "center center",
+                            start: "top top", // Match pin start
+                            end: "+=1500",    // Match pin end
                             scrub: 2
                         }
                     });
