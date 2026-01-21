@@ -4,67 +4,303 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Believe Trust</title>
-    <meta name="description" content="Believe Trust - Building the foundation for a secure future.">
-    <link rel="stylesheet" href="styles.css">
+    <title>Believe Trust - The Director's Cut</title>
+    <!-- Use landing_unified.css for the premium styles -->
+    <link rel="stylesheet" href="landing_unified.css">
+
+    <!-- SEO & Social Meta Tags -->
+    <meta name="description"
+        content="Believe Trust - Building the foundation for a secure future with trust, verification, and community.">
+    <meta name="keywords" content="crypto, trust, blockchain, believe, future, finance">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Open Graph (Facebook/Discord) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://believe-trust-app.vercel.app">
+    <meta property="og:title" content="Believe Trust - The Director's Cut">
+    <meta property="og:description" content="Building the foundation for a secure future. Join the movement.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/believe-trust/assets/main/og-image.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Believe Trust - The Director's Cut">
+    <meta name="twitter:description" content="Building the foundation for a secure future. Join the movement.">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/believe-trust/assets/main/og-image.jpg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&display=swap"
         rel="stylesheet">
+
+
+    <!-- GSAP via CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- Lenis for Smooth Scrolling -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
 </head>
 
 <body>
-    <header class="header">
-        <div class="container header-container">
-            <a href="#" class="logo">
-                <div class="logo-icon">B</div>
-                <span class="logo-title">BELIEVE</span>
-            </a>
-            <nav class="nav">
-                <ul class="nav-list">
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#services" class="nav-link">Services</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-                <a href="#join" class="btn btn-secondary">Sign In</a>
-            </nav>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
-                <span class="hamburger"></span>
-            </button>
-        </div>
+    <div class="noise-overlay"></div>
+
+    <!-- ANIMATION: The Trust Thread (Global) -->
+    <div class="thread-container">
+        <svg class="thread-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <!-- Path D drawn via JS -->
+            <path d="" class="thread-line" vector-effect="non-scaling-stroke" />
+        </svg>
+    </div>
+
+    <!-- Unified Nav / Logo -->
+    <header class="main-header">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">B</div>
+            <span class="logo-title">BELIEVE</span>
+        </a>
+        <nav class="nav-links">
+            <a href="manifesto.html">Manifesto</a>
+            <a href="#verification">Ledger</a>
+            <a href="#coordination">Network</a>
+            <a href="#community">Community</a>
+        </nav>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-bg">
-                <img src="assets/hero-bg.png" alt="Hero Background" class="hero-bg-img">
-                <div class="overlay"></div>
+    <!-- SECTION 1: STATIC HERO - Believe in Tomorrow -->
+    <section id="hero-static" class="section hero-static">
+        <div class="hero-bg">
+            <!-- Ensure assets/hero-bg.png exists relative to this file -->
+            <img src="assets/hero-bg.png" alt="Hero Background" class="hero-bg-img">
+            <div class="overlay"></div>
+        </div>
+        <div class="content hero-static-content">
+            <h1 class="hero-title">
+                <span class="fade-in-up" style="animation-delay: 0.1s;">Believe in</span>
+                <span class="fade-in-up text-gradient" style="animation-delay: 0.2s;">Tomorrow.</span>
+            </h1>
+            <p class="hero-subtitle fade-in-up" style="animation-delay: 0.3s;">
+                We build the trust that powers your wildest ambitions. Secure, reliable, and always by your side.
+            </p>
+            <div class="hero-actions fade-in-up" style="animation-delay: 0.7s;">
+                <a href="ico.html" class="btn btn-primary">Start Your Journey</a>
+                <a href="manifesto.html" class="btn btn-outline">Learn More</a>
             </div>
-            <div class="container hero-content">
-                <h1 class="hero-title">
-                    <span class="fade-in-up" style="animation-delay: 0.1s;">Believe in</span>
-                    <span class="fade-in-up text-gradient" style="animation-delay: 0.2s;">Tomorrow.</span>
-                </h1>
-                <p class="hero-subtitle fade-in-up" style="animation-delay: 0.3s;">
-                    We build the trust that powers your wildest ambitions. Secure, reliable, and always by your side.
-                </p>
-                <div class="hero-actions fade-in-up" style="animation-delay: 0.4s;">
-                    <a href="#get-started" class="btn btn-primary">Start Your Journey</a>
-                    <a href="#learn-more" class="btn btn-outline">Learn More</a>
-                </div>
-            </div>
+        </div>
 
-            <div class="scroll-indicator fade-in">
-                <span>Scroll</span>
-                <div class="mouse">
-                    <div class="wheel"></div>
-                </div>
+        <div class="scroll-indicator fade-in">
+            <span>Scroll</span>
+            <div class="mouse">
+                <div class="wheel"></div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <script src="script.js"></script>
+    <!-- SECTION 2: CYCLES - Cycles -> Expansion (Scroll Zoom) -->
+    <section id="cycles" class="section section-cycles">
+        <div class="solar-system">
+            <div class="sun-core"></div> <!-- Scales up -->
+            <div class="orbit orbit-1"></div>
+            <div class="orbit orbit-2"></div>
+            <div class="orbit orbit-3"></div>
+        </div>
+        <div class="content hero-content">
+            <span class="tag">PRINCIPLE 3.3</span>
+            <h1 class="title-lg">Long-Term<br>Alignment</h1>
+            <p class="text-md">Trust is not extracted. It is grown together over time.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 2: VERIFICATION - The Lens (Transparency) -->
+    <section id="verification" class="section section-verification">
+        <div class="lens-cursor"></div> <!-- Follows mouse -->
+
+        <!-- Background Stream -->
+        <div class="ledger-stream">
+            <div class="ledger-row">Block 8921 • Hash: 0x7f...2a • Time: 12:04 • Trust Score: 98</div>
+            <div class="ledger-row">Block 8922 • Hash: 0x8a...4b • Time: 12:05 • Trust Score: 99</div>
+            <div class="ledger-row">Block 8923 • Hash: 0x9c...1d • Time: 12:06 • Trust Score: 97</div>
+            <div class="ledger-row">Block 8924 • Hash: 0x4b...9e • Time: 12:07 • Trust Score: 100</div>
+            <div class="ledger-row">Block 8925 • Hash: 0x1d...8f • Time: 12:08 • Trust Score: 98</div>
+            <div class="ledger-row">Block 8926 • Hash: 0x2a...3c • Time: 12:09 • Trust Score: 99</div>
+        </div>
+
+        <div class="content">
+            <span class="tag">VERIFICATION</span>
+            <h1 class="title-lg">Trust but<br>Verify.</h1>
+            <p class="text-md">Our public ledger allows anyone to audit the system in real-time. No hidden fees, no
+                backroom deals.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 3: COORDINATION - The Web (Connection) -->
+    <section id="coordination" class="section section-coordination">
+        <!-- SVG Web Background drawn by JS -->
+        <div class="network-web"></div>
+
+        <div class="content">
+            <span class="tag">COORDINATION</span>
+            <h1 class="title-lg">Power in<br>Numbers.</h1>
+            <p class="text-md">We coordinate belief at scale. Together, we are an unbreakable force of nature.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 4: COMMUNITY - The Core (Humanity) -->
+    <section id="community" class="section section-community">
+        <div class="particles-container"></div> <!-- Particles -->
+
+        <div class="content">
+            <span class="tag">COMMUNITY</span>
+            <h1 class="title-lg">Human<br>First.</h1>
+            <p class="text-md">Technology serves us, not the other way around. Join a movement that prioritizes human
+                flourishing.</p>
+            <a href="ico.html" class="btn btn-primary" style="margin-top: 40px;">Join the Trust</a>
+        </div>
+    </section>
+
+    <!-- SCRIPT: Unified Logic -->
+    <script>
+        // --- 1. LENIS SMOOTH SCROLL ---
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+
+        // --- 2. GSAP SCROLLTRIGGER SETUP ---
+        gsap.registerPlugin(ScrollTrigger);
+
+        // --- 3. THE THREAD (CONNECTING LINE) ---
+        // Draws a line from top to bottom as you scroll
+        const threadLine = document.querySelector('.thread-line');
+        // Simple straight line down the center for MVP, gets complex with more points
+        // We'll simulate it "threading" through sections
+
+        function updateThread() {
+            const scrollY = window.scrollY;
+            const height = document.body.scrollHeight;
+            const progress = scrollY / (height - window.innerHeight);
+
+            // Just a vertical line that grows
+            // Coordinates: Move down the Y axis
+            // To make it curve, we'd need specific points per section. 
+            // Let's keep it simple: A glowing red line tracking scroll.
+            // Actually, let's make it a fixed centered line that 'fills'
+
+            // For the SVG path 'd': M 50 0 L 50 [current_y_percent]
+            const yPos = progress * 100;
+            threadLine.setAttribute('d', `M 50 0 L 50 ${yPos}`);
+        }
+
+        window.addEventListener('scroll', updateThread);
+
+
+        // --- 4. SECTION ANIMATIONS ---
+
+        // SECTION 1: HERO STATIC -> Fade Out on Scroll
+        gsap.to(".hero-static-content", {
+            scrollTrigger: {
+                trigger: "#hero-static",
+                start: "top top",
+                end: "bottom top",
+                scrub: true
+            },
+            y: -100,
+            opacity: 0
+        });
+
+        // SECTION 2: CYCLES (Orbital Expansion)
+        // Pin the section, scale the sun massively
+        // NOTE: Increased end to "+=2000" to match walkthrough request for "Extended Pinning"
+        let cyclesTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#cycles",
+                start: "top top",
+                end: "+=2000",
+                scrub: 1,
+                pin: true,
+                anticipatePin: 1
+            }
+        });
+
+        cyclesTl.to(".solar-system", {
+            scale: 15, // Excessive scale to simulate flying INTO the sun
+            rotation: 90,
+            ease: "power2.inOut"
+        }, 0)
+            .to(".hero-content", {
+                opacity: 0,
+                scale: 1.5,
+                ease: "power2.in"
+            }, 0);
+
+
+        // SECTION 3: VERIFICATION (Lens Reveal)
+        // Move the lens with mouse
+        const lens = document.querySelector('.lens-cursor');
+        const verificationSection = document.querySelector('#verification');
+
+        verificationSection.addEventListener('mousemove', (e) => {
+            const rect = verificationSection.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            gsap.to(lens, {
+                x: x,
+                y: y,
+                duration: 0.2, // lag for smoothness
+                ease: "power2.out"
+            });
+
+            // Reveal effect (Quick implementation: Use mix-blend-mode or mask in CSS)
+            // CSS handles the masking via clip-path or background-attachment usually.
+            // For now, the lens is just a visual cursor follower.
+        });
+
+
+        // SECTION 4: COORDINATION (Web Connection)
+        // Parallax the web nodes
+        gsap.to(".network-web", {
+            scrollTrigger: {
+                trigger: "#coordination",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true
+            },
+            y: "20%", // Move background slower
+            ease: "none"
+        });
+
+
+        // SECTION 5: COMMUNITY (Particles)
+        // Simple stagger in of content
+        gsap.from("#community .content > *", {
+            scrollTrigger: {
+                trigger: "#community",
+                start: "top 70%"
+            },
+            y: 50,
+            opacity: 0,
+            stagger: 0.2,
+            duration: 1,
+            ease: "power3.out"
+        });
+
+    </script>
+
+    <!-- Audio Manager -->
+    <script src="audio_manager.js"></script>
 </body>
 
 </html>
