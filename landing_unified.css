@@ -21,6 +21,26 @@ body {
     min-height: 100vh;
 }
 
+html.lenis {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
+}
+
 /* FILM GRAIN TEXTURE */
 .noise-overlay {
     position: fixed;
@@ -181,6 +201,8 @@ body {
 .btn-primary:hover {
     background: var(--accent-orange);
     color: #000;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 149, 0, 0.2);
 }
 
 .btn-outline {
@@ -191,6 +213,34 @@ body {
 .btn-outline:hover {
     border-color: #fff;
     background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.05);
+}
+
+/* Shine Effect Utility */
+.shine-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.shine-effect::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -150%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+            transparent,
+            rgba(255, 255, 255, 0.1),
+            transparent);
+    transform: rotate(45deg);
+    transition: 0.6s;
+    pointer-events: none;
+}
+
+.shine-effect:hover::before {
+    left: 100%;
 }
 
 

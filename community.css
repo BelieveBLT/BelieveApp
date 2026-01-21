@@ -75,12 +75,37 @@
     text-decoration: none;
     color: #fff;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     min-height: 260px;
+    overflow: hidden;
+    /* Ensure shine stays within bounds */
+}
+
+/* Apply Shine and Enhanced Lift to social-card */
+.social-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -150%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+            transparent,
+            rgba(255, 255, 255, 0.05),
+            transparent);
+    transform: rotate(45deg);
+    transition: 0.6s;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.social-card:hover::after {
+    left: 100%;
+}
+
+.social-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .social-card::before {

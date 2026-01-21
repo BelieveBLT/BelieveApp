@@ -97,16 +97,39 @@ body {
     word-break: break-all;
     border: 1px dashed rgba(255, 59, 48, 0.5);
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.3s ease;
     display: inline-block;
     color: var(--accent-red);
+    position: relative;
+    overflow: hidden;
 }
 
 .address-box:hover {
     background: rgba(255, 59, 48, 0.1);
     border-color: #fff;
     color: #fff;
-    transform: scale(1.02);
+    transform: scale(1.02) translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 59, 48, 0.2);
+}
+
+.address-box::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -150%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+            transparent,
+            rgba(255, 255, 255, 0.05),
+            transparent);
+    transform: rotate(45deg);
+    transition: 0.6s;
+    pointer-events: none;
+}
+
+.address-box:hover::after {
+    left: 100%;
 }
 
 /* --- Raise Details Grid --- */
@@ -151,23 +174,43 @@ body {
 }
 
 .tier-card {
-    background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    background: rgba(10, 10, 10, 0.4);
+    backdrop-filter: blur(20px) saturate(130%);
+    -webkit-backdrop-filter: blur(20px) saturate(130%);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
+    border-radius: 24px;
     padding: 40px 30px;
-    transition: all 0.4s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     overflow: hidden;
     text-align: center;
 }
 
 .tier-card:hover {
-    transform: translateY(-10px);
-    border-color: rgba(255, 255, 255, 0.3);
-    background: rgba(255, 255, 255, 0.06);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    transform: translateY(-12px);
+    border-color: var(--accent-orange);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+}
+
+.tier-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -150%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+            transparent,
+            rgba(255, 255, 255, 0.1),
+            transparent);
+    transform: rotate(45deg);
+    transition: 0.8s;
+    pointer-events: none;
+}
+
+.tier-card:hover::before {
+    left: 100%;
 }
 
 .tier-header {
