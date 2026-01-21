@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Prophecy - Believe Trust</title>
+
+    <!-- SEO & Social -->
+    <meta name="description" content="The Manifesto of Believe Trust. A declaration of faith in a trustless world.">
+    <meta name="theme-color" content="#000000">
+
+    <link rel="stylesheet" href="landing_unified.css">
+    <link rel="stylesheet" href="manifesto.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <!-- Lenis & GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+    <div class="thread-line"></div>
+
+    <header class="main-header" style="position: fixed; top: 0; width: 100%; z-index: 100;">
+        <a href="landing_unified.html" class="logo">
+            <div class="logo-icon">B</div>
+            <span class="logo-title">BELIEVE</span>
+        </a>
+        <nav class="nav-links">
+            <a href="ico.html">Join the Trust →</a>
+        </nav>
+    </header>
+
+    <div class="manifesto-container">
+
+        <!-- Opening Title -->
+        <section class="manifesto-intro">
+            <h1 class="prophecy-title">The Prophecy</h1>
+            <p class="prophecy-subtitle">A Testament of Belief</p>
+        </section>
+
+        <!-- Chapter 1: The Code -->
+        <section class="chapter">
+            <span class="chapter-number">I.</span>
+            <h2 class="chapter-title">The Code of Trust</h2>
+            <div class="chapter-content">
+                <p>We believe in <span class="highlight">Crypto</span> not because it is decentralized, but because it
+                    is the only system that allows trust to scale without intermediaries.</p>
+                <p>We believe that <span class="highlight">Trust</span> is the ultimate currency. Fiat is backed by
+                    violence. Gold is backed by scarcity. Belief is backed by us.</p>
+                <p>We reject the cynical rotational games of the current market. We are here to build a cathedral of
+                    value that lasts for generations.</p>
+            </div>
+        </section>
+
+        <!-- Chapter 2: The Action -->
+        <section class="chapter">
+            <span class="chapter-number">II.</span>
+            <h2 class="chapter-title">Conviction Over Chaos</h2>
+            <div class="chapter-content">
+                <p>To <span class="highlight">Hold</span> is an active verb. It is an act of defiance against a system
+                    that wants you to trade, to churn, to lose.</p>
+                <p>We do not flip. We do not panic. We verify the ledger, and we stand firm.</p>
+                <p>This is not a cult of personality. It is a cult of <span class="highlight">Mathematics</span>.</p>
+            </div>
+        </section>
+
+        <!-- Chapter 3: The End -->
+        <section class="chapter">
+            <span class="chapter-number">III.</span>
+            <h2 class="chapter-title">The Singularity</h2>
+            <div class="chapter-content">
+                <p>When enough people believe in the same ledger, the ledger becomes truth.</p>
+                <p>When the ledger becomes truth, the old world dissolves.</p>
+                <p>We are the architects of this new truth. We are the <span class="highlight">Believers</span>.</p>
+            </div>
+        </section>
+
+        <!-- Signature -->
+        <section class="manifesto-footer">
+            <p class="final-line">The Ledger is Open.</p>
+            <a href="ico.html" class="sign-button">Write Your Name</a>
+        </section>
+
+    </div>
+
+    <!-- Audio Manager -->
+    <script src="audio_manager.js"></script>
+
+    <script>
+        // Init smooth scroll
+        const lenis = new Lenis({
+            duration: 1.5, // Slower for reading
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smooth: true
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Register ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Reveal Animations
+        const chapters = document.querySelectorAll('.chapter');
+
+        chapters.forEach(chapter => {
+            gsap.from(chapter.children, {
+                scrollTrigger: {
+                    trigger: chapter,
+                    start: "top 80%",
+                    end: "bottom 80%",
+                    toggleActions: "play none none reverse"
+                },
+                opacity: 0,
+                y: 30,
+                duration: 1.5,
+                stagger: 0.2,
+                ease: "power2.out"
+            });
+        });
+
+        // Intro Animation
+        gsap.from(".prophecy-title", {
+            duration: 2,
+            opacity: 0,
+            scale: 0.9,
+            ease: "power3.out",
+            delay: 0.5
+        });
+
+        gsap.from(".prophecy-subtitle", {
+            duration: 2,
+            opacity: 0,
+            y: 20,
+            ease: "power3.out",
+            delay: 1
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,461 @@
+/* ICO Page Styles - PREMIUM POLISH */
+@import url('landing_unified.css');
+
+:root {
+    --bg-black: #050505;
+    --text-white: #ffffff;
+    --accent-red: #ff3b30;
+    --accent-orange: #ff9500;
+    --font-serif: 'Playfair Display', serif;
+    --font-inter: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+    background: var(--bg-black);
+    color: var(--text-white);
+    font-family: var(--font-inter);
+    overflow-x: hidden;
+}
+
+/* Global Thread Line */
+.thread-line {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: 100vh;
+    background: linear-gradient(to bottom, transparent, var(--accent-red), transparent);
+    transform: translateX(-50%);
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.ico-container {
+    margin: 0 auto;
+    padding: 60px 20px 100px;
+    position: relative;
+    z-index: 5;
+}
+
+/* Header */
+.ico-header {
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 10;
+}
+
+.section-title {
+    font-size: 5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-serif);
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.section-subtitle {
+    font-size: 1.25rem;
+    color: #999;
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+/* Contribution Box (Glass) */
+.contribution-box {
+    background: rgba(255, 30, 30, 0.05);
+    /* Subtle red tint */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 59, 48, 0.3);
+    padding: 50px;
+    border-radius: 30px;
+    text-align: center;
+    margin: 0 auto 100px;
+    max-width: 800px;
+    box-shadow: 0 0 50px rgba(255, 59, 48, 0.05);
+}
+
+.title-md {
+    font-family: var(--font-serif);
+    font-size: 2.5rem !important;
+    /* Force override */
+    margin-bottom: 20px;
+}
+
+.address-box {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 24px;
+    border-radius: 12px;
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    margin: 30px auto;
+    word-break: break-all;
+    border: 1px dashed rgba(255, 59, 48, 0.5);
+    cursor: pointer;
+    transition: 0.3s;
+    display: inline-block;
+    color: var(--accent-red);
+}
+
+.address-box:hover {
+    background: rgba(255, 59, 48, 0.1);
+    border-color: #fff;
+    color: #fff;
+    transform: scale(1.02);
+}
+
+/* --- Raise Details Grid --- */
+.raise-details-grid {
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.detail-item .label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #888;
+    letter-spacing: 1px;
+}
+
+.detail-item .value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    font-family: var(--font-mono);
+}
+
+/* --- ICO TIERS (3D Glass Cards) --- */
+.ico-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    margin-bottom: 150px;
+    perspective: 1000px;
+    /* For 3D tilt */
+}
+
+.tier-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 40px 30px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.tier-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.tier-header {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--accent-orange);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.tier-price {
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    margin-bottom: 25px;
+    color: #fff;
+}
+
+.tier-details {
+    padding: 0;
+    margin: 0;
+}
+
+.tier-details li {
+    margin-bottom: 12px;
+    list-style: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 12px;
+    font-size: 0.95rem;
+    color: #aaa;
+}
+
+.tier-details li:last-child {
+    border: none;
+}
+
+/* --- TOKENOMICS (Timeline Style) --- */
+.tokenomics-section {
+    margin-bottom: 150px;
+    position: relative;
+    text-align: center;
+}
+
+/* Distribution Model */
+.distribution-model {
+    margin-bottom: 60px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.model-row {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.model-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1;
+    min-width: 280px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.model-item h4 {
+    color: var(--accent-orange);
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+}
+
+/* Airdrop Timeline */
+.airdrop-timeline {
+    position: relative;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    margin-left: 50%;
+    /* Center the line */
+    padding-left: 0;
+    text-align: left;
+}
+
+.airdrop-item {
+    margin-bottom: 80px;
+    position: relative;
+    width: 45%;
+    margin-left: 55%;
+    /* Push to right side */
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    transition: 0.3s;
+}
+
+.airdrop-item:nth-child(even) {
+    margin-left: 0;
+    margin-right: 55%;
+    /* Push to left side */
+    text-align: right;
+}
+
+.airdrop-item:hover {
+    border-color: var(--accent-red);
+    background: rgba(5, 0, 0, 1);
+}
+
+.airdrop-item::before {
+    content: '';
+    position: absolute;
+    left: -58px;
+    /* Adjust for line center */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background: #000;
+    border: 2px solid var(--accent-red);
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.airdrop-item:nth-child(even)::before {
+    left: auto;
+    right: -58px;
+    /* Adjust for line center */
+}
+
+.trigger-price {
+    font-family: var(--font-mono);
+    color: var(--accent-red);
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    display: block;
+    font-weight: 700;
+}
+
+/* --- THE MISSION --- */
+.mission-section {
+    margin-bottom: 120px;
+    text-align: center;
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.mission-card {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mission-card.do {
+    border-left: 3px solid #0f0;
+}
+
+.mission-card.dont {
+    border-left: 3px solid #f00;
+}
+
+.mission-card h3 {
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+}
+
+.mission-card ul {
+    color: #aaa;
+    line-height: 1.6;
+    padding-left: 20px;
+    margin: 0;
+}
+
+.mission-card ul li {
+    margin-bottom: 10px;
+}
+
+/* --- ROADMAP (Premium Nodes) --- */
+.roadmap-grid {
+    display: grid;
+    gap: 40px;
+    margin-bottom: 150px;
+}
+
+.phase-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: 0.3s;
+}
+
+.phase-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--accent-orange);
+}
+
+.phase-title {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.phase-goal {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--accent-orange);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.phase-bullets {
+    margin-top: 15px;
+    padding-left: 20px;
+    color: #aaa;
+    line-height: 1.5;
+}
+
+.phase-bullets li {
+    margin-bottom: 8px;
+}
+
+/* --- FAQ --- */
+details {
+    background: transparent;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px 0;
+    border-radius: 0;
+}
+
+summary {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: #ccc;
+    transition: 0.3s;
+}
+
+details[open] summary {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 3rem;
+    }
+
+    .airdrop-timeline {
+        margin-left: 20px;
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .airdrop-item,
+    .airdrop-item:nth-child(even) {
+        width: auto;
+        margin-left: 40px;
+        margin-right: 0;
+        text-align: left;
+    }
+
+    .airdrop-item::before,
+    .airdrop-item:nth-child(even)::before {
+        left: -49px;
+        right: auto;
+    }
+
+    .raise-details-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mission-grid {
+        grid-template-columns: 1fr;
+    }
+}

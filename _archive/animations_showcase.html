@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Believe Trust - Animation Showcase</title>
+    <link rel="stylesheet" href="animations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- GSAP via CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+
+    <nav class="nav">
+        <div class="logo">B</div>
+        <div class="nav-links">
+            <a href="#a1">1. Orbit</a>
+            <a href="#a2">2. Stream</a>
+            <a href="#a3">3. Focus</a>
+            <a href="#a4">4. Stack</a>
+            <a href="#a5">5. Thread</a>
+            <a href="#a6">6. Lens</a>
+            <a href="#a7">7. Tilt</a>
+            <a href="#a8">8. Mask</a>
+            <a href="#a9">9. Particles</a>
+            <a href="#a10">10. Skew</a>
+        </div>
+    </nav>
+
+    <!-- 1. Orbital Expansion (The Big Bang) -->
+    <section id="a1" class="section a1-orbit">
+        <div class="sun-core"></div>
+        <div class="orbit-ring r1"></div>
+        <div class="orbit-ring r2"></div>
+        <div class="orbit-ring r3"></div>
+        <div class="content">
+            <h1>Expansion</h1>
+            <p>From a single point of belief.</p>
+        </div>
+    </section>
+
+    <!-- 2. Parallax Ledger Streams -->
+    <section id="a2" class="section a2-stream">
+        <div class="stream-container">
+            <!-- Populated by JS -->
+        </div>
+        <div class="content">
+            <h1>The Ledger</h1>
+            <p>Verifiable history flowing forever.</p>
+        </div>
+    </section>
+
+    <!-- 3. Text Emergence (Clarify) -->
+    <section id="a3" class="section a3-focus">
+        <div class="blur-text-container">
+            <h1 class="blur-text">CLARITY</h1>
+            <h1 class="blur-text">FROM</h1>
+            <h1 class="blur-text">CHAOS</h1>
+        </div>
+    </section>
+
+    <!-- 4. Sticky Card Stacking -->
+    <section id="a4" class="section a4-stack-wrapper">
+        <div class="card card-1">
+            <h1>Foundation</h1>
+            <p>Trust is built layer by layer.</p>
+        </div>
+        <div class="card card-2">
+            <h1>Structure</h1>
+            <p>Resilient systems for the long term.</p>
+        </div>
+        <div class="card card-3">
+            <h1>Ascension</h1>
+            <p>Rising together.</p>
+        </div>
+    </section>
+
+    <!-- 5. The Trust Thread -->
+    <section id="a5" class="section a5-thread">
+        <svg class="thread-svg" viewBox="0 0 100 1000" preserveAspectRatio="none">
+            <path d="M50,0 C20,200 80,400 50,600 C20,800 80,1000 50,1200" stroke="white" stroke-width="2" fill="none"
+                class="thread-line" />
+        </svg>
+        <div class="content">
+            <h1>Connection</h1>
+            <p>An unbreakable thread of conviction.</p>
+        </div>
+    </section>
+
+    <!-- 6. Spotlight / Lens -->
+    <section id="a6" class="section a6-lens">
+        <div class="lens-cursor"></div>
+        <div class="hidden-content">
+            <div class="term-grid">
+                <span>0x9f</span><span>0x2a</span><span>TRUST</span><span>0x88</span>
+                <span>BELIEVE</span><span>0x1c</span><span>0x00</span><span>CODE</span>
+            </div>
+        </div>
+        <div class="content">
+            <h1>Transparency</h1>
+            <p>Explore the truth beneath.</p>
+        </div>
+    </section>
+
+    <!-- 7. 3D Velocity Tilt -->
+    <section id="a7" class="section a7-tilt">
+        <div class="tilt-plane">
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item big"></div>
+            <div class="grid-item"></div>
+            <div class="grid-item"></div>
+        </div>
+        <div class="content">
+            <h1>Momentum</h1>
+            <p>The entire system reacts to your pace.</p>
+        </div>
+    </section>
+
+    <!-- 8. Masked Typography -->
+    <section id="a8" class="section a8-mask">
+        <h1 class="masked-text">BELIEVE</h1>
+        <div class="background-video-mock"></div>
+    </section>
+
+    <!-- 9. Particle Assembler -->
+    <section id="a9" class="section a9-particles">
+        <canvas id="particleCanvas"></canvas>
+        <div class="content">
+            <h1>Assembly</h1>
+            <p>Many individuals forming one purpose.</p>
+        </div>
+    </section>
+
+    <!-- 10. Smooth Skew -->
+    <section id="a10" class="section a10-skew">
+        <div class="skew-content">
+            <div class="skew-block">Patience</div>
+            <div class="skew-block outline">Conviction</div>
+            <div class="skew-block">Growth</div>
+            <div class="skew-block outline">Future</div>
+        </div>
+    </section>
+
+    <script src="animations.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Your Journey - Believe Trust</title>
+
+    <!-- SEO & Social -->
+    <meta name="description"
+        content="Participate in the Believe Trust ICO. A fair launch community raise. No VCs, no insiders, just belief.">
+    <meta name="keywords" content="ICO, crypto raise, fair launch, believe trust, token sale">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Open Graph (Facebook/Discord) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://believetrust.com/ico">
+    <meta property="og:title" content="Join the Trust - ICO Live">
+    <meta property="og:description"
+        content="Participate in the Believe Trust ICO. The ledger is open. Will you write your name?">
+    <meta property="og:image" content="https://raw.githubusercontent.com/believe-trust/assets/main/og-ico.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Join the Trust - ICO Live">
+    <meta name="twitter:description" content="Participate in the Believe Trust ICO. A fair launch community raise.">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/believe-trust/assets/main/og-ico.jpg">
+
+    <link rel="stylesheet" href="ico.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <!-- Lenis & GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+    <div class="thread-line"></div>
+
+    <header class="main-header" style="position: sticky;">
+        <a href="landing_unified.html" class="logo">
+            <div class="logo-icon">B</div>
+            <span class="logo-title">BELIEVE</span>
+        </a>
+        <nav class="nav-links">
+            <a href="landing_unified.html">← Back to Manifesto</a>
+        </nav>
+    </header>
+
+    <div class="ico-container">
+
+        <!-- SECTION 1: ICO -->
+        <div class="ico-header fade-in-up">
+            <h1 class="section-title">The Contribution</h1>
+            <p class="section-subtitle">Believe Trust is a community-owned value system. Your tokens are not meant to be
+                flipped. They are meant to anchor trust.</p>
+        </div>
+
+        <div class="contribution-box fade-in-up" style="animation-delay: 0.2s;">
+            <h3 class="title-md" style="font-size: 2rem;">ICO Live Until Filled</h3>
+            <p>Send any accepted cryptocurrency (USDC, USDT, USDH, ETH, HYPE) to:</p>
+            <div class="address-box"
+                onclick="navigator.clipboard.writeText('0xbff59e9319dd8ac89446662acd0a685d5cbd37e6'); alert('Address Copied!');">
+                0xbff59e9319dd8ac89446662acd0a685d5cbd37e6
+            </div>
+            <p class="text-sm">Click to Copy • Ethereum Mainnet, Arbitrum, Base, Hyperliquid</p>
+
+            <!-- Raise Details -->
+            <div class="raise-details-grid">
+                <div class="detail-item">
+                    <span class="label">Total Raise</span>
+                    <span class="value">$7,000,000</span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">ICO Supply</span>
+                    <span class="value">500,000,000 BLT</span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">FDV</span>
+                    <span class="value">$50,000,000</span>
+                </div>
+                <div class="detail-item">
+                    <span class="label">Vesting</span>
+                    <span class="value">100% Unlocked</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="ico-grid">
+            <div class="tier-card fade-in-up" style="animation-delay: 0.3s;">
+                <div class="tier-header">Tier 1</div>
+                <div class="tier-price">$0.005</div>
+                <ul class="tier-details">
+                    <li>Alloc: 100,000,000 BLT</li>
+                    <li>Max: $100 / wallet</li>
+                </ul>
+            </div>
+            <div class="tier-card fade-in-up" style="animation-delay: 0.4s;">
+                <div class="tier-header">Tier 2</div>
+                <div class="tier-price">$0.01</div>
+                <ul class="tier-details">
+                    <li>Alloc: 100,000,000 BLT</li>
+                    <li>Max: $500 / wallet</li>
+                </ul>
+            </div>
+            <div class="tier-card fade-in-up" style="animation-delay: 0.5s;">
+                <div class="tier-header">Tier 3</div>
+                <div class="tier-price">$0.015</div>
+                <ul class="tier-details">
+                    <li>Alloc: 100,000,000 BLT</li>
+                    <li>Max: $1,000 / wallet</li>
+                </ul>
+            </div>
+            <div class="tier-card fade-in-up" style="animation-delay: 0.6s;">
+                <div class="tier-header">Tier 4</div>
+                <div class="tier-price">$0.02</div>
+                <ul class="tier-details">
+                    <li>Alloc: 200,000,000 BLT</li>
+                    <li>Max: $5,000 / wallet</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SECTION 2: TOKENOMICS -->
+        <div class="tokenomics-section">
+            <h2 class="title-lg" style="font-size: 3rem; margin-bottom: 60px; text-align: center;">Strategic Airdrops
+            </h2>
+
+            <!-- Distribution Model -->
+            <div class="distribution-model">
+                <div class="model-row">
+                    <div class="model-item">
+                        <h4>Onboarding (10%)</h4>
+                        <p class="text-sm">10M wallets receive 100 tokens. Aimed at new users.</p>
+                    </div>
+                    <div class="model-item">
+                        <h4>Believers (15%)</h4>
+                        <p class="text-sm">1.5B tokens distributed to holders & partners.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="airdrop-timeline">
+                <div class="airdrop-item">
+                    <span class="trigger-price">> $0.025 (30 Days)</span>
+                    <h3>First Airdrop (5%)</h3>
+                    <p class="text-sm">500,000,000 BLT distributed to all holders.</p>
+                </div>
+                <div class="airdrop-item">
+                    <span class="trigger-price">> $0.05 (30 Days)</span>
+                    <h3>Second Airdrop (5%)</h3>
+                    <p class="text-sm">500,000,000 BLT distributed.</p>
+                </div>
+                <div class="airdrop-item">
+                    <span class="trigger-price">> $0.10 (90 Days)</span>
+                    <h3>Third Airdrop (10%)</h3>
+                    <p class="text-sm">1,000,000,000 BLT distributed.</p>
+                </div>
+                <div class="airdrop-item">
+                    <span class="trigger-price">> $1.00 (6 Months)</span>
+                    <h3>Fourth Airdrop (25%)</h3>
+                    <p class="text-sm">2,500,000,000 BLT distributed.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3: THE MISSION -->
+        <div class="mission-section">
+            <h2 class="title-lg" style="font-size: 3rem; margin-bottom: 40px; text-align: center;">The Mission</h2>
+            <div class="mission-grid">
+                <div class="mission-card do">
+                    <h3>It Exists To:</h3>
+                    <ul>
+                        <li>Deploy capital into yield-generating strategies.</li>
+                        <li>Fund community initiatives and ecosystem growth.</li>
+                        <li>Hire professional fund managers.</li>
+                        <li>Recycle gains back into the system (not to insiders).</li>
+                    </ul>
+                </div>
+                <div class="mission-card dont">
+                    <h3>It Is NOT:</h3>
+                    <ul>
+                        <li>❌ A promise of guaranteed returns</li>
+                        <li>❌ A buyback machine</li>
+                        <li>❌ A liquidity provider</li>
+                        <li>❌ A trading desk</li>
+                        <li>❌ A passive income scheme</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 4: ROADMAP -->
+        <div class="roadmap-section">
+            <h2 class="title-lg" style="font-size: 3rem; margin-bottom: 60px; text-align: center;">The Path Forward</h2>
+            <div class="roadmap-grid">
+                <div class="phase-card">
+                    <div class="phase-title">Phase I: Foundation</div>
+                    <span class="phase-goal">Filter believers, reject extractors</span>
+                    <ul class="phase-bullets">
+                        <li>No protocol liquidity.</li>
+                        <li>Hostile-to-trading token mechanics.</li>
+                        <li>Capped entry.</li>
+                        <li>Borrowing > Selling becomes the norm.</li>
+                    </ul>
+                </div>
+                <div class="phase-card">
+                    <div class="phase-title">Phase II: Capital Discipline</div>
+                    <span class="phase-goal">Make belief productive</span>
+                    <ul class="phase-bullets">
+                        <li>Believe Trust formally capitalized.</li>
+                        <li>Professional fund managers onboarded.</li>
+                        <li>Capital deployed into yield strategies.</li>
+                        <li>First governance layer introduced.</li>
+                    </ul>
+                </div>
+                <div class="phase-card">
+                    <div class="phase-title">Phase III: Utility Expansion</div>
+                    <span class="phase-goal">Replace selling with usage</span>
+                    <ul class="phase-bullets">
+                        <li>Advanced borrowing markets.</li>
+                        <li>BLT used as trust collateral across partners.</li>
+                        <li>Community credit lines & insurance buffers.</li>
+                        <li>Permissioned liquidity rails.</li>
+                    </ul>
+                </div>
+                <div class="phase-card">
+                    <div class="phase-title">Phase IV: Distribution</div>
+                    <span class="phase-goal">Grow without extraction</span>
+                    <ul class="phase-bullets">
+                        <li>Belief-based airdrops tied to time + contribution.</li>
+                        <li>Global onboarding.</li>
+                        <li>Trust-funded education and tools.</li>
+                    </ul>
+                </div>
+                <div class="phase-card">
+                    <div class="phase-title">Phase V: Permanence</div>
+                    <span class="phase-goal">Become unkillable</span>
+                    <ul class="phase-bullets">
+                        <li>Operates as an autonomous economic entity.</li>
+                        <li>Treasury diversified (on-chain + off-chain).</li>
+                        <li>Governance shifts to long-term believers.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 5: FAQ -->
+        <div class="faq-section">
+            <h2 class="title-lg" style="font-size: 3rem; margin-bottom: 60px; text-align: center;">FAQ</h2>
+            <div class="faq-grid">
+                <details>
+                    <summary>What is Believe Trust?</summary>
+                    <p class="text-sm" style="margin-top: 10px;">A belief-governed system where value compounds through
+                        holding and borrowing, not trading.</p>
+                </details>
+                <details>
+                    <summary>Can I sell BLT?</summary>
+                    <p class="text-sm" style="margin-top: 10px;">Selling is possible but discouraged. No protocol
+                        liquidity. Heavy penalties apply.</p>
+                </details>
+                <details>
+                    <summary>How do I get liquidity?</summary>
+                    <p class="text-sm" style="margin-top: 10px;">Borrow against your BLT. Liquidity comes from belief,
+                        not exits.</p>
+                </details>
+                <details>
+                    <summary>Is this a Ponzi or yield scheme?</summary>
+                    <p class="text-sm" style="margin-top: 10px;">No guarantees, no forced inflows, no pooled funds.</p>
+                </details>
+                <details>
+                    <summary>Who is this for?</summary>
+                    <p class="text-sm" style="margin-top: 10px;">Long-term believers. Not traders.</p>
+                </details>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="audio_manager.js"></script>
+    <script>
+        // Init smooth scroll
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smooth: true
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Register ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Animations disabled to fix visibility issue
+        // The content will now be static but guaranteed visible
+
+        /*
+        // Simple Stagger Animation
+        gsap.from(".airdrop-item", {
+            scrollTrigger: {
+                trigger: ".airdrop-timeline",
+                start: "top 90%", // Trigger earlier
+                toggleActions: "play none none reverse"
+            },
+            opacity: 0,
+            x: -20,
+            stagger: 0.2,
+            duration: 0.8
+        });
+
+        gsap.from(".phase-card", {
+            scrollTrigger: {
+                trigger: ".roadmap-grid",
+                start: "top 90%", // Trigger earlier
+                toggleActions: "play none none reverse"
+            },
+            opacity: 0,
+            y: 20,
+            stagger: 0.2,
+            duration: 0.8
+        });
+        */
+    </script>
+</body>
+
+</html>

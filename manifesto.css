@@ -1,0 +1,161 @@
+/* MANIFESTO STYLES - "The Prophecy" */
+
+/* Inherit core variables from unified CSS */
+:root {
+    --bg-black: #050505;
+    --text-white: #e0e0e0;
+    --accent-red: #ff3b30;
+    --font-serif: 'Playfair Display', serif;
+    --font-inter: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+    background-color: var(--bg-black);
+    color: var(--text-white);
+    font-family: var(--font-serif);
+    /* Default to Serif for reading */
+}
+
+.manifesto-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 150px 20px 200px;
+    /* Large vertical padding */
+    position: relative;
+    z-index: 10;
+}
+
+/* Intro */
+.manifesto-intro {
+    height: 80vh;
+    /* Takes up most of the first screen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.prophecy-title {
+    font-size: 6rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+    background: linear-gradient(to bottom, #fff, #666);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.prophecy-subtitle {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--accent-red);
+    opacity: 0.8;
+}
+
+/* Chapters */
+.chapter {
+    margin-bottom: 200px;
+    /* Huge spacing between thoughts */
+    padding-left: 60px;
+    border-left: 1px solid rgba(255, 59, 48, 0.2);
+    /* Red line guide */
+    position: relative;
+}
+
+.chapter-number {
+    position: absolute;
+    left: -60px;
+    /* Inside the margin */
+    top: 0;
+    font-family: var(--font-mono);
+    color: var(--accent-red);
+    font-size: 1.2rem;
+    opacity: 0.6;
+}
+
+.chapter-title {
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 40px;
+    color: #fff;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.chapter-content p {
+    font-family: var(--font-inter);
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #ccc;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.highlight {
+    color: #fff;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Footer & CTA */
+.manifesto-footer {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.final-line {
+    font-size: 2rem;
+    margin-bottom: 50px;
+    color: #fff;
+}
+
+.sign-button {
+    display: inline-block;
+    padding: 20px 60px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    text-decoration: none;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: 0.4s;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.sign-button:hover {
+    background: var(--accent-red);
+    border-color: var(--accent-red);
+    color: #000;
+    box-shadow: 0 0 30px rgba(255, 59, 48, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .prophecy-title {
+        font-size: 3.5rem;
+    }
+
+    .chapter {
+        padding-left: 20px;
+        border: none;
+        text-align: left;
+    }
+
+    .chapter-number {
+        position: relative;
+        left: 0;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .chapter-content p {
+        font-size: 1.1rem;
+    }
+}

@@ -1,0 +1,607 @@
+/* Base Styles (Shared) */
+:root {
+    --bg-black: #050505;
+    --text-white: #ffffff;
+    --accent-red: #ff3b30;
+    --accent-orange: #ff9500;
+    --font-inter: 'Inter', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+    margin: 0;
+    background: var(--bg-black);
+    color: var(--text-white);
+    font-family: var(--font-inter);
+    transition: background 0.5s;
+    overflow-x: hidden;
+}
+
+/* Demo Nav */
+.demo-nav {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 15px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    max-width: 90vw;
+    overflow-x: auto;
+}
+
+.demo-label {
+    font-size: 0.7rem;
+    color: #888;
+    margin-right: 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.demo-nav button {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 20px;
+    transition: 0.3s;
+    opacity: 0.6;
+    white-space: nowrap;
+}
+
+.demo-nav button.active,
+.demo-nav button:hover {
+    background: var(--text-white);
+    color: #000;
+    opacity: 1;
+}
+
+/* Common Layout */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.header-block {
+    text-align: center;
+    margin-top: 150px;
+    margin-bottom: 80px;
+}
+
+.hero-title {
+    font-family: var(--font-serif);
+    font-size: 5rem;
+    margin-bottom: 20px;
+    line-height: 1;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: #aaa;
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+.section-heading {
+    font-family: var(--font-serif);
+    font-size: 4rem;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.copy-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: var(--font-mono);
+}
+
+section {
+    padding: 100px 0;
+    position: relative;
+}
+
+/* =========================================
+   THEME 1: THE RED THREAD (Narrative)
+   ========================================= */
+.theme-thread .thread-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent-red), transparent);
+    transform: translateX(-50%);
+    opacity: 0.8;
+}
+
+.theme-thread .tiers-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.theme-thread .tier-card {
+    background: #111;
+    border: 1px solid #333;
+    padding: 40px;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 0;
+    border-left: 4px solid var(--accent-red);
+    /* Thread Connection */
+    position: relative;
+    z-index: 2;
+}
+
+.theme-thread .roadmap-flow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+}
+
+.theme-thread .phase-node {
+    background: #111;
+    padding: 40px;
+    border: 1px solid #333;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(255, 59, 48, 0.1);
+}
+
+.theme-thread .core-circle,
+.theme-thread .orbit-ring {
+    display: none;
+}
+
+/* Hide Radial Elements */
+
+
+/* =========================================
+   THEME 2: OBSIDIAN GLASS (Premium)
+   ========================================= */
+.theme-glass {
+    background: radial-gradient(circle at top center, #1a1a1a, #000);
+}
+
+.theme-glass .thread-line {
+    display: none;
+}
+
+.theme-glass .tiers-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    perspective: 1000px;
+}
+
+.theme-glass .tier-card {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    transition: transform 0.4s;
+    overflow: hidden;
+}
+
+.theme-glass .tier-card:hover {
+    transform: translateY(-10px) rotateX(2deg);
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.theme-glass .card-glass {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.theme-glass .phase-node {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 30px;
+    margin-bottom: 20px;
+    border-left: 2px solid var(--accent-orange);
+    border-radius: 0 10px 10px 0;
+}
+
+
+/* =========================================
+   THEME 3: RADIAL CORE (Cosmic)
+   ========================================= */
+.theme-radial .thread-line {
+    display: none;
+}
+
+.theme-radial .tiers-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.theme-radial .tier-card {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    /* Circle Cards */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #000;
+    box-shadow: 0 0 20px rgba(255, 149, 0, 0.1);
+    transition: 0.3s;
+}
+
+.theme-radial .tier-card:hover {
+    border-color: var(--accent-orange);
+    transform: scale(1.1);
+    box-shadow: 0 0 40px rgba(255, 149, 0, 0.3);
+}
+
+.theme-radial .token-graphic {
+    width: 400px;
+    height: 400px;
+    position: relative;
+    margin: 0 auto 60px;
+}
+
+.theme-radial .core-circle {
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 50px white;
+}
+
+.theme-radial .orbit-ring {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+}
+
+.theme-radial .o1 {
+    width: 200px;
+    height: 200px;
+}
+
+.theme-radial .o2 {
+    width: 300px;
+    height: 300px;
+}
+
+.theme-radial .o3 {
+    width: 400px;
+    height: 400px;
+}
+
+
+/* =========================================
+   THEME 4: MONOLITH (Brutalist)
+   ========================================= */
+.theme-monolith .thread-line,
+.theme-monolith .token-graphic {
+    display: none;
+}
+
+.theme-monolith {
+    --bg-black: #111;
+}
+
+.theme-monolith .tier-card {
+    background: #000;
+    border: 4px solid #333;
+    padding: 60px;
+    margin-bottom: 20px;
+    border-radius: 0;
+    text-transform: uppercase;
+}
+
+.theme-monolith .tier-card:hover {
+    border-color: #fff;
+    background: #222;
+}
+
+.theme-monolith .hero-title {
+    font-weight: 900;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+}
+
+.theme-monolith .phase-node {
+    border-left: 10px solid #fff;
+    padding-left: 30px;
+    margin-bottom: 40px;
+}
+
+/* =========================================
+   THEME 5: CONSTELLATION (Network)
+   ========================================= */
+.theme-constellation .thread-line {
+    display: none;
+}
+
+.theme-constellation .tiers-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.theme-constellation .tier-card {
+    background: transparent;
+    border: 1px dashed rgba(255, 255, 255, 0.3);
+    position: relative;
+    padding: 40px;
+}
+
+.theme-constellation .tier-card::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-radius: 50%;
+}
+
+.theme-constellation .token-graphic {
+    border: 1px dotted #fff;
+    border-radius: 50%;
+    animation: rotate 60s linear infinite;
+}
+
+/* =========================================
+   THEME 6: HORIZON (Cinematic)
+   ========================================= */
+.theme-horizon {
+    background: linear-gradient(to bottom, #000 0%, #1a0505 100%);
+}
+
+.theme-horizon .thread-line {
+    width: 100%;
+    height: 1px;
+    top: 300px;
+    bottom: auto;
+    left: 0;
+    background: var(--accent-orange);
+    transform: none;
+}
+
+.theme-horizon .tiers-wrapper {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 40px;
+    gap: 40px;
+    justify-content: start;
+}
+
+.theme-horizon .tier-card {
+    min-width: 300px;
+    background: rgba(0, 0, 0, 0.8);
+    border-top: 2px solid var(--accent-orange);
+    border-radius: 0;
+}
+
+.theme-horizon .phase-node {
+    border-bottom: 1px solid var(--accent-orange);
+    padding-bottom: 20px;
+}
+
+/* =========================================
+   THEME 7: TERMINAL (Technical)
+   ========================================= */
+.theme-terminal {
+    font-family: var(--font-mono);
+}
+
+.theme-terminal .thread-line {
+    display: none;
+}
+
+.theme-terminal .hero-title,
+.theme-terminal .section-heading {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: -2px;
+}
+
+.theme-terminal .tier-card {
+    border: 1px solid #0f0;
+    background: #000;
+    color: #0f0;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+}
+
+.theme-terminal .tier-price {
+    color: #0f0;
+}
+
+.theme-terminal .tier-badge {
+    color: #0f0;
+    border: 1px solid #0f0;
+    padding: 2px 8px;
+}
+
+.theme-terminal .copy-box {
+    border-color: #0f0;
+    color: #0f0;
+}
+
+.theme-terminal .label,
+.theme-terminal .code {
+    color: #0f0;
+}
+
+/* =========================================
+   THEME 8: PRISM (Optical)
+   ========================================= */
+.theme-prism .tier-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: -5px 0 10px rgba(255, 0, 0, 0.2), 5px 0 10px rgba(0, 255, 255, 0.2);
+    border-radius: 20px;
+}
+
+.theme-prism .hero-title {
+    text-shadow: 2px 2px 0 rgba(255, 0, 0, 0.5), -2px -2px 0 rgba(0, 255, 255, 0.5);
+}
+
+/* =========================================
+   THEME 9: ORBIT (Cyclical)
+   ========================================= */
+.theme-orbit .tiers-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    transform: rotate(45deg);
+    gap: 60px;
+    margin: 100px 0;
+}
+
+.theme-orbit .tier-card {
+    transform: rotate(-45deg);
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: radial-gradient(circle, #222, #000);
+}
+
+/* =========================================
+   THEME 10: VOID (Minimalist)
+   ========================================= */
+.theme-void {
+    background: #000 !important;
+}
+
+.theme-void .thread-line,
+.theme-void .token-graphic {
+    display: none;
+}
+
+.theme-void .tier-card {
+    border: none;
+    border-left: 1px solid #333;
+    padding-left: 40px;
+    background: transparent;
+}
+
+.theme-void .tier-price {
+    font-weight: 300;
+}
+
+.theme-void .hero-title {
+    font-weight: 300;
+    letter-spacing: 10px;
+    font-size: 3rem;
+}
+
+.theme-void .phase-node {
+    border: none;
+    padding: 0;
+    margin-bottom: 60px;
+}
+
+
+/* Generic Element Styles */
+.tier-price {
+    font-size: 3rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    margin: 10px 0;
+}
+
+.tier-badge {
+    color: var(--accent-orange);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.faq-item {
+    background: #111;
+    padding: 20px;
+    border-bottom: 1px solid #333;
+    margin-bottom: 10px;
+    cursor: pointer;
+    Transition: 0.3s;
+}
+
+.faq-item:hover {
+    background: #1a1a1a;
+}
+
+.question {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.answer {
+    margin-top: 10px;
+    color: #999;
+    line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .tiers-wrapper {
+        flex-direction: column !important;
+        grid-template-columns: 1fr !important;
+    }
+
+    .theme-orbit .tiers-wrapper {
+        transform: none;
+        grid-template-columns: 1fr !important;
+    }
+
+    .theme-orbit .tier-card {
+        transform: none;
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+        padding: 40px;
+    }
+}

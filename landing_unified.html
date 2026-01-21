@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Believe Trust - The Director's Cut</title>
+    <link rel="stylesheet" href="landing_unified.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+
+    <!-- GSAP via CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- Lenis for Smooth Scrolling -->
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+</head>
+
+<body>
+    <div class="noise-overlay"></div>
+
+    <!-- ANIMATION: The Trust Thread (Global) -->
+    <div class="thread-container">
+        <svg class="thread-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <!-- Path D drawn via JS -->
+            <path d="" class="thread-line" vector-effect="non-scaling-stroke" />
+        </svg>
+    </div>
+
+    <!-- Unified Nav / Logo -->
+    <header class="main-header">
+        <a href="landing_unified.html" class="logo">
+            <div class="logo-icon">B</div>
+            <span class="logo-title">BELIEVE</span>
+        </a>
+        <nav class="nav-links">
+            <a href="manifesto.html">Manifesto</a>
+            <a href="#verification">Ledger</a>
+            <a href="#coordination">Network</a>
+            <a href="#community">Community</a>
+        </nav>
+    </header>
+
+    <!-- SECTION 1: STATIC HERO - Believe in Tomorrow -->
+    <section id="hero-static" class="section hero-static">
+        <div class="hero-bg">
+            <!-- Ensure assets/hero-bg.png exists relative to this file -->
+            <img src="assets/hero-bg.png" alt="Hero Background" class="hero-bg-img">
+            <div class="overlay"></div>
+        </div>
+        <div class="content hero-static-content">
+            <h1 class="hero-title">
+                <span class="fade-in-up" style="animation-delay: 0.1s;">Believe in</span>
+                <span class="fade-in-up text-gradient" style="animation-delay: 0.2s;">Tomorrow.</span>
+            </h1>
+            <p class="hero-subtitle fade-in-up" style="animation-delay: 0.3s;">
+                We build the trust that powers your wildest ambitions. Secure, reliable, and always by your side.
+            </p>
+            <div class="hero-actions fade-in-up" style="animation-delay: 0.7s;">
+                <a href="ico.html" class="btn btn-primary">Start Your Journey</a>
+                <a href="manifesto.html" class="btn btn-outline">Learn More</a>
+            </div>
+        </div>
+
+        <div class="scroll-indicator fade-in">
+            <span>Scroll</span>
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: CYCLES - Cycles -> Expansion (Scroll Zoom) -->
+    <section id="cycles" class="section section-cycles">
+        <div class="solar-system">
+            <div class="sun-core"></div> <!-- Scales up -->
+            <div class="orbit orbit-1"></div>
+            <div class="orbit orbit-2"></div>
+            <div class="orbit orbit-3"></div>
+        </div>
+        <div class="content hero-content">
+            <span class="tag">PRINCIPLE 3.3</span>
+            <h1 class="title-lg">Long-Term<br>Alignment</h1>
+            <p class="text-md">Trust is not extracted. It is grown together over time.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 2: VERIFICATION - The Lens (Transparency) -->
+    <section id="verification" class="section section-verification">
+        <div class="lens-cursor"></div> <!-- Follows mouse -->
+
+        <!-- Background Stream -->
+        <div class="ledger-stream">
+            <div class="ledger-row">Block 8921 • Hash: 0x7f...2a • Time: 12:04 • Trust Score: 98</div>
+            <div class="ledger-row">Block 8922 • Hash: 0x8a...4b • Time: 12:05 • Trust Score: 99</div>
+            <div class="ledger-row">Block 8923 • Hash: 0x9c...1d • Time: 12:06 • Trust Score: 97</div>
+            <div class="ledger-row">Block 8924 • Hash: 0xb2...9f • Time: 12:07 • Trust Score: 99</div>
+            <div class="ledger-row">Block 8925 • Hash: 0xe4...3c • Time: 12:08 • Trust Score: 100</div>
+            <div class="ledger-row">Block 8926 • Hash: 0xf1...5b • Time: 12:09 • Trust Score: 98</div>
+        </div>
+
+        <!-- Hidden Code Layer (Revealed by Lens) -->
+        <div class="hidden-layer">
+            <div class="term-grid">
+                <span>0xBE</span><span>0xDE</span><span>TRUST</span><span>0x21</span>
+                <span>OPEN</span><span>0xFA</span><span>0x00</span><span>CODE</span>
+            </div>
+        </div>
+
+        <!-- Foreground Content -->
+        <div class="content glass-panel">
+            <h2 class="title-md">Trust Is Verifiable.</h2>
+            <p class="text-sm">No blind promises. All systems are designed<br>to be observable and clear.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 3: COORDINATION - The Social Web (Network) -->
+    <section id="coordination" class="section section-coordination">
+        <div class="network-bg" id="networkBg"></div>
+        <div class="content coord-content">
+            <h2 class="title-lg">Coordinated<br>Belief</h2>
+            <p class="text-md">A social infrastructure for collective uplift.</p>
+            <a href="#community" class="btn btn-outline">Join the Network</a>
+        </div>
+    </section>
+
+    <!-- SECTION 4: COMMUNITY - Particle Assembly (Finale) -->
+    <section id="community" class="section section-community">
+        <canvas id="particleCanvas"></canvas>
+        <div class="content comm-content">
+            <h1 class="title-xl">From One,<br>To Many.</h1>
+            <p class="text-md">Grounded in real people.</p>
+            <a href="#" class="btn btn-primary">Enter Believe Trust</a>
+        </div>
+    </section>
+
+    <script>
+        // --- LENIS SMOOTH SCROLL ---
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Exponential easing
+            smooth: true
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // --- GSAP INTEGRATION ---
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 0. HERO DELAY (Pin Section 1 briefly)
+        ScrollTrigger.create({
+            trigger: "#hero-static",
+            start: "top top",
+            end: "+=500", // Slight delay/friction before moving on
+            pin: true,
+            scrub: true
+        });
+
+        // 1. TRUST THREAD (SVG Path)
+        // Need to set the path D attribute dynamically based on window width/height
+        const threadSvg = document.querySelector('.thread-svg');
+        const threadPath = document.querySelector('.thread-line');
+
+        function updateThread() {
+            const w = window.innerWidth;
+            const h = window.innerHeight; // Section height
+            // Simple sin wave going down 4 sections
+            let d = `M${w / 2},0 `;
+            // Section 1
+            d += `C${w / 2 + 100},${h / 2} ${w / 2 - 100},${h / 2} ${w / 2},${h} `;
+            // Section 2
+            d += `C${w / 2 + 200},${h + h / 2} ${w / 2 - 200},${h + h / 2} ${w / 2},${h * 2} `;
+            // Section 3
+            d += `C${w / 2 + 100},${h * 2 + h / 2} ${w / 2 - 100},${h * 2 + h / 2} ${w / 2},${h * 3} `;
+            // Section 4
+            d += `C${w / 2},${h * 3 + h / 2} ${w / 2},${h * 4} ${w / 2},${h * 4} `;
+
+            threadPath.setAttribute('d', d);
+
+            // Length for animation
+            const len = threadPath.getTotalLength();
+            threadPath.style.strokeDasharray = len;
+            threadPath.style.strokeDashoffset = len;
+
+            gsap.to(threadPath, {
+                strokeDashoffset: 0,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: "body",
+                    start: "top top",
+                    end: "bottom bottom",
+                    scrub: 1
+                }
+            });
+        }
+        window.addEventListener('resize', updateThread);
+        // Delay slightly to ensure layout
+        setTimeout(updateThread, 100);
+
+
+        // 2. ORBITAL EXPANSION
+        const sun = document.querySelector('.sun-core');
+        gsap.to(sun, {
+            scale: 50,
+            opacity: 0,
+            ease: "power2.inOut",
+            scrollTrigger: {
+                trigger: "#cycles",
+                start: "top top",
+                end: "+=2000", /* Extended pin duration */
+                scrub: true,
+                pin: true
+            }
+        });
+        gsap.to('.hero-content', {
+            opacity: 0,
+            scale: 0.8,
+            scrollTrigger: {
+                trigger: "#cycles",
+                start: "center center",
+                end: "+=2000", /* Match pin duration */
+                scrub: true
+            }
+        });
+
+
+        // 3. LENS REVEAL
+        const lensSection = document.getElementById('verification');
+        const lensCursor = document.querySelector('.lens-cursor');
+        const hiddenLayer = document.querySelector('.hidden-layer');
+
+        if (lensSection && lensCursor) {
+            lensSection.addEventListener('mouseenter', () => {
+                lensCursor.style.display = 'block';
+                // Also show hidden layer slightly so we can mask it? 
+                // Actually, best way is to set opacity of hidden to 1 BUT clip-path it
+                // Simpler for prototype: Lens is mix-blend-mode screen, hidden layer is low opacity
+                gsap.to(hiddenLayer, { opacity: 0.15, duration: 0.5 });
+            });
+            lensSection.addEventListener('mouseleave', () => {
+                lensCursor.style.display = 'none';
+                gsap.to(hiddenLayer, { opacity: 0, duration: 0.5 });
+            });
+            lensSection.addEventListener('mousemove', (e) => {
+                gsap.to(lensCursor, {
+                    x: e.clientX,
+                    y: e.clientY,
+                    duration: 0.1,
+                    ease: "power2.out"
+                });
+            });
+        }
+
+        // Ledger Animation (Parallax)
+        gsap.utils.toArray(".ledger-row").forEach((row, i) => {
+            gsap.to(row, {
+                x: i % 2 === 0 ? "10%" : "-10%",
+                scrollTrigger: {
+                    trigger: "#verification",
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: true
+                }
+            });
+        });
+
+
+        // 4. COORDINATION CANVAS (Network)
+        {
+            const canvas = document.createElement('canvas');
+            canvas.style.position = "absolute";
+            canvas.style.inset = "0";
+            const ctx = canvas.getContext('2d');
+            const networkBg = document.getElementById('networkBg');
+
+            if (networkBg) {
+                networkBg.innerHTML = ''; // Clear prev
+                networkBg.appendChild(canvas);
+
+                let w, h;
+                function resize() {
+                    w = canvas.width = networkBg.offsetWidth;
+                    h = canvas.height = networkBg.offsetHeight;
+                }
+                window.addEventListener('resize', resize);
+                resize();
+
+                const nodes = [];
+                for (let i = 0; i < 40; i++) {
+                    nodes.push({
+                        x: Math.random() * w,
+                        y: Math.random() * h,
+                        vx: (Math.random() - 0.5) * 0.5,
+                        vy: (Math.random() - 0.5) * 0.5
+                    });
+                }
+
+                function draw() {
+                    ctx.clearRect(0, 0, w, h);
+                    ctx.fillStyle = '#ffcfcf';
+                    ctx.strokeStyle = 'rgba(255, 59, 48, 0.15)';
+
+                    nodes.forEach(node => {
+                        node.x += node.vx;
+                        node.y += node.vy;
+                        if (node.x < 0 || node.x > w) node.vx *= -1;
+                        if (node.y < 0 || node.y > h) node.vy *= -1;
+
+                        ctx.beginPath();
+                        ctx.arc(node.x, node.y, 2, 0, Math.PI * 2);
+                        ctx.fill();
+
+                        nodes.forEach(other => {
+                            const d = Math.hypot(node.x - other.x, node.y - other.y);
+                            if (d < 150) {
+                                ctx.beginPath();
+                                ctx.moveTo(node.x, node.y);
+                                ctx.lineTo(other.x, other.y);
+                                ctx.stroke();
+                            }
+                        });
+                    });
+                    requestAnimationFrame(draw);
+                }
+                draw();
+            }
+        }
+
+        // 5. COMMUNITY PARTICLES (Assembler)
+        {
+            const canvas = document.getElementById('particleCanvas');
+            const ctx = canvas.getContext('2d');
+            let w, h;
+
+            function resizeP() {
+                w = canvas.width = window.innerWidth;
+                h = canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resizeP);
+            resizeP();
+
+            const particles = [];
+            const centerX = w / 2;
+            const centerY = h / 2;
+
+            // Create particles
+            for (let i = 0; i < 150; i++) {
+                particles.push({
+                    x: Math.random() * w, // Start random
+                    y: Math.random() * h,
+                    targetX: centerX + Math.cos(i) * 200, // Dummy target circle
+                    targetY: centerY + Math.sin(i) * 200,
+                    size: Math.random() * 2 + 1
+                });
+            }
+
+            // Draw Loop
+            function drawP() {
+                ctx.clearRect(0, 0, w, h);
+                ctx.fillStyle = "#000"; // Black particles on white
+
+                particles.forEach(p => {
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fill();
+                });
+                requestAnimationFrame(drawP);
+            }
+            drawP();
+
+            // GSAP Logic: Move from Random to Organized
+            // We want them to start scattered and assemble when we scroll here
+            // Wait, we want them to *start* assembled? Or assemble?
+            // Let's assemble them.
+
+            particles.forEach((p, i) => {
+                // Calculate target shape (A circle)
+                const angle = (i / particles.length) * Math.PI * 2;
+                const r = 150;
+
+                gsap.to(p, {
+                    x: centerX + Math.cos(angle) * r,
+                    y: centerY + Math.sin(angle) * r,
+                    duration: 1,
+                    scrollTrigger: {
+                        trigger: "#community",
+                        start: "top center",
+                        end: "center center",
+                        scrub: 2
+                    }
+                });
+            });
+        }
+
+    </script>
+</body>
+
+</html>

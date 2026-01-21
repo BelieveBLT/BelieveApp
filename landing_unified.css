@@ -1,0 +1,732 @@
+/* Global Vars */
+:root {
+    --bg-black: #050505;
+    --text-white: #ffffff;
+    --accent-red: #ff3b30;
+    --accent-orange: #ff9500;
+    --font-inter: 'Inter', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+
+body {
+    background: var(--bg-black);
+    color: var(--text-white);
+    font-family: var(--font-inter);
+    margin: 0;
+    overflow-x: hidden;
+    /* Lenis.js handles the scroll, so we remove scroll-snap to let physics take over */
+    /* scroll-snap-type: y mandatory; */
+    min-height: 100vh;
+}
+
+/* FILM GRAIN TEXTURE */
+.noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.07;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2BGcmVxdWVuY3k9IjAuNjUiIG51bU9jdGF2ZXM9IjMiIHN0aXRjaFRpbGVzPSJzdGl0Y2giLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWx0ZXI9InVybCgjbm9pc2UpIiBvcGFjaXR5PSIxIi8+PC9zdmc+');
+}
+
+/* Header & Nav */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    padding: 0 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background-color: #ffffff;
+    color: #000000;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.logo-title {
+    display: block;
+    font-size: 18px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+/* Section Basics */
+.section {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    scroll-snap-align: start;
+}
+
+.content {
+    z-index: 10;
+    text-align: center;
+    max-width: 900px;
+    padding: 2rem;
+}
+
+.tag {
+    color: var(--accent-orange);
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.title-lg {
+    font-size: 5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.title-md {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.title-xl {
+    font-size: 7rem;
+    font-weight: 900;
+    line-height: 0.9;
+    margin-bottom: 20px;
+}
+
+.text-md {
+    font-size: 1.25rem;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.text-sm {
+    font-size: 1rem;
+    color: #bbb;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 36px;
+    margin-top: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.btn-primary {
+    background: #fff;
+    color: #000;
+}
+
+.btn-primary:hover {
+    background: var(--accent-orange);
+    color: #000;
+}
+
+.btn-outline {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+}
+
+.btn-outline:hover {
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+
+/* --- ANIMATION LAYERS --- */
+
+/* 1. The Trust Thread */
+.thread-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 5;
+    /* Behind content (10), above background */
+    opacity: 0.4;
+}
+
+.thread-line {
+    stroke: var(--accent-red);
+    stroke-width: 2px;
+    fill: none;
+}
+
+/* --- SECTION 1: STATIC HERO (Believe in Tomorrow) --- */
+.hero-static {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    scroll-snap-align: start;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+    /* Dim slightly */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, var(--bg-black) 10%, transparent 60%);
+    z-index: 2;
+}
+
+.hero-static-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 800px;
+    /* Match index.html */
+    margin-top: 40px;
+    /* Match index.html */
+}
+
+/* Specific Hero Typography from index.html */
+.hero-title {
+    font-family: var(--font-serif);
+    font-size: 4.5rem;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    font-weight: 600;
+}
+
+.hero-title span {
+    display: block;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-muted, #a0a0a0);
+    /* Fallback if var missing */
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* Override default button margin since we use a container now */
+.hero-actions .btn {
+    margin-top: 0;
+}
+
+/* Mouse Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    z-index: 20;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.7;
+}
+
+.mouse {
+    width: 24px;
+    height: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.wheel {
+    width: 4px;
+    height: 6px;
+    background: #fff;
+    border-radius: 2px;
+    margin-top: 6px;
+    animation: scroll 1.5s infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(12px);
+        opacity: 0;
+    }
+}
+
+.text-gradient {
+    background: linear-gradient(90deg, #ffffff, #a5b4fc);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease 0.2s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- SECTION 2: CYCLES (Formerly Hero) --- */
+.section-cycles {
+    background: radial-gradient(circle at center, #1a0505 0%, #000 80%);
+    overflow: hidden;
+    position: relative;
+}
+
+.solar-system {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.sun-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120px;
+    height: 120px;
+    background: transparent;
+    /* Was #fff */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 80px rgba(255, 59, 48, 0.6);
+    z-index: 2;
+}
+
+.orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.orbit-1 {
+    width: 300px;
+    height: 300px;
+    animation: rotate 30s linear infinite;
+}
+
+.orbit-2 {
+    width: 500px;
+    height: 500px;
+    animation: rotate 50s linear infinite reverse;
+}
+
+.orbit-3 {
+    width: 750px;
+    height: 750px;
+    animation: rotate 70s linear infinite;
+}
+
+/* The Hero Content needs to fade out */
+.hero-content {
+    opacity: 1;
+    /* Handled by GSAP */
+}
+
+.scroll-instruction {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.7;
+}
+
+.scroll-instruction .line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, #fff, transparent);
+}
+
+@keyframes rotate {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* --- SECTION 2: VERIFICATION (Ledger + Lens) --- */
+.section-verification {
+    background: #050505;
+    /* Darker for lens contrast */
+    perspective: 1200px;
+    overflow: hidden;
+    cursor: none;
+    /* Hide default cursor */
+    position: relative;
+}
+
+.ledger-stream {
+    position: absolute;
+    width: 180%;
+    top: 15%;
+    left: -20%;
+    transform: rotateX(30deg) rotateY(0deg) rotateZ(-8deg);
+    opacity: 0.25;
+}
+
+.ledger-row {
+    font-family: var(--font-mono);
+    color: var(--accent-red);
+    padding: 1.2rem;
+    border-bottom: 1px solid rgba(255, 59, 48, 0.15);
+    font-size: 1.3rem;
+    white-space: nowrap;
+}
+
+.lens-cursor {
+    position: fixed;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 59, 48, 0.1) 0%, transparent 70%);
+    border: 1px solid rgba(255, 59, 48, 0.3);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    mix-blend-mode: screen;
+    display: none;
+    /* Shown via JS */
+}
+
+.hidden-layer {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    /* Only revealed by lens (simulated opacity change or clip-path) */
+    pointer-events: none;
+}
+
+.term-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4rem;
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    color: var(--accent-red);
+    opacity: 0.3;
+}
+
+.glass-panel {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 4rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    z-index: 15;
+    /* Above hidden layer */
+}
+
+/* --- SECTION 3: COORDINATION (Network) --- */
+.section-coordination {
+    background: #080808;
+}
+
+.network-bg {
+    position: absolute;
+    inset: 0;
+    opacity: 0.4;
+}
+
+.coord-content {
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.8) 0%, transparent 70%);
+    padding: 5rem;
+}
+
+/* --- SECTION 4: COMMUNITY (Particles) --- */
+.section-community {
+    background: #fff;
+    color: #000;
+    position: relative;
+}
+
+.mosaic-grid {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(#f0f0f0 1px, transparent 1px),
+        linear-gradient(90deg, #f0f0f0 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.section-community .title-xl {
+    color: #000;
+}
+
+.section-community .text-md {
+    color: #666;
+    margin-bottom: 40px;
+}
+
+#particleCanvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+
+    /* Global Typography */
+    .title-lg,
+    .title-xl {
+        font-size: 3rem;
+        /* Scale down from 5rem/7rem */
+        line-height: 1.1;
+    }
+
+    /* Hero Specifics Mobile */
+    .hero-title {
+        font-size: 2.8rem;
+        line-height: 1.2;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        padding: 0 20px;
+        margin-bottom: 30px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        gap: 12px;
+        padding: 0 40px;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .scroll-indicator {
+        bottom: 20px;
+        /* Adjust slightly for mobile */
+        transform: translateX(-50%) scale(0.8);
+        /* Shrink slightly */
+    }
+
+    .title-md {
+        font-size: 2.5rem;
+    }
+
+    .text-md {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    /* Navigation */
+    .main-header {
+        padding: 0 20px;
+        height: 60px;
+        background: rgba(0, 0, 0, 0.9);
+        /* More contrast on mobile */
+    }
+
+    .logo-title {
+        display: none;
+        /* Icon only on mobile to save space */
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: 0.7rem;
+    }
+
+    /* Hero */
+    .solar-system {
+        width: 100%;
+        /* Constrain to viewport */
+        height: 100%;
+    }
+
+    .orbit-3 {
+        width: 90vw;
+        height: 90vw;
+    }
+
+    .orbit-2 {
+        width: 60vw;
+        height: 60vw;
+    }
+
+    .orbit-1 {
+        width: 40vw;
+        height: 40vw;
+    }
+
+    .sun-core {
+        width: 60px;
+        height: 60px;
+    }
+
+    /* Smaller sun start */
+
+    /* Verification / Lens */
+    .section-verification {
+        cursor: auto;
+        /* Restore cursor */
+    }
+
+    .lens-cursor {
+        display: none !important;
+        /* Disable lens on mobile */
+    }
+
+    .hidden-layer {
+        opacity: 0.15 !important;
+        /* Always show hidden layer faintly */
+    }
+
+    .glass-panel {
+        padding: 2rem;
+        margin: 1rem;
+    }
+
+    .ledger-row {
+        font-size: 1rem;
+        /* Smaller monospace text */
+    }
+
+    /* Coordination */
+    .coord-content {
+        padding: 2rem;
+    }
+
+    /* Community */
+    .comm-content {
+        padding: 2rem;
+    }
+}

@@ -1,0 +1,371 @@
+:root {
+    --bg-black: #050505;
+    --text-white: #ffffff;
+    --accent-red: #ff3b30;
+    --accent-orange: #ff9500;
+    --font-inter: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+    background: var(--bg-black);
+    color: var(--text-white);
+    font-family: var(--font-inter);
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 9999;
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, #000, transparent);
+    pointer-events: none;
+}
+
+.nav * {
+    pointer-events: auto;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    border-radius: 4px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #888;
+    text-decoration: none;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+.section {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-direction: column;
+    border-bottom: 1px solid #111;
+}
+
+.content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    pointer-events: none;
+}
+
+h1 {
+    font-size: 4vw;
+    font-weight: 800;
+    margin: 0 0 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #aaa;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* 1. Orbit */
+.a1-orbit {
+    background: #000;
+}
+
+.sun-core {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 50px #fff;
+    z-index: 5;
+}
+
+.orbit-ring {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+
+.r1 {
+    width: 200px;
+    height: 200px;
+}
+
+.r2 {
+    width: 500px;
+    height: 500px;
+}
+
+.r3 {
+    width: 900px;
+    height: 900px;
+}
+
+/* 2. Stream */
+.a2-stream {
+    background: #050505;
+}
+
+.stream-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    opacity: 0.3;
+}
+
+.stream-row {
+    font-family: var(--font-mono);
+    font-size: 2rem;
+    white-space: nowrap;
+    color: var(--accent-orange);
+}
+
+/* 3. Focus */
+.a3-focus {
+    background: #020202;
+}
+
+.blur-text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.blur-text {
+    font-size: 8vw;
+    color: #fff;
+    filter: blur(20px);
+    opacity: 0;
+    transform: scale(1.2);
+}
+
+/* 4. Stack */
+.a4-stack-wrapper {
+    height: 300vh;
+    /* Extra scroll space */
+    background: #111;
+    display: block;
+    /* Override flex */
+    position: relative;
+}
+
+.card {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #333;
+    box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.card-1 {
+    background: #1a1a1a;
+    z-index: 1;
+}
+
+.card-2 {
+    background: #222;
+    z-index: 2;
+    top: 20px;
+}
+
+.card-3 {
+    background: #2a2a2a;
+    z-index: 3;
+    top: 40px;
+}
+
+/* 5. Thread */
+.a5-thread {
+    background: #000;
+}
+
+.thread-svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+}
+
+/* 6. Lens */
+.a6-lens {
+    background: #000;
+    cursor: none;
+}
+
+.lens-cursor {
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    mix-blend-mode: screen;
+}
+
+.hidden-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.1;
+    /* Barely visible normally */
+}
+
+.term-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    font-family: var(--font-mono);
+    font-size: 2rem;
+    color: var(--accent-red);
+}
+
+/* 7. Tilt */
+.a7-tilt {
+    background: #111;
+    perspective: 1000px;
+    overflow: hidden;
+}
+
+.tilt-plane {
+    width: 80vw;
+    height: 80vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    transform-style: preserve-3d;
+}
+
+.grid-item {
+    background: #222;
+    border: 1px solid #333;
+    transition: 0.1s;
+}
+
+.grid-item.big {
+    grid-column: span 2;
+    grid-row: span 2;
+    background: #333;
+}
+
+/* 8. Mask */
+.a8-mask {
+    background: #000;
+}
+
+.masked-text {
+    font-size: 15vw;
+    background: #fff;
+    color: #000;
+    mix-blend-mode: screen;
+    /* Fallback */
+    margin: 0;
+}
+
+.background-video-mock {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, var(--accent-red), var(--accent-orange), #000);
+    background-size: 200% 200%;
+    animation: gradientMove 5s infinite;
+    z-index: -1;
+}
+
+/* 9. Particles */
+.a9-particles {
+    background: #000;
+}
+
+canvas {
+    position: absolute;
+    inset: 0;
+}
+
+/* 10. Skew */
+.a10-skew {
+    background: #111;
+}
+
+.skew-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    transform-origin: center;
+}
+
+.skew-block {
+    background: #fff;
+    color: #000;
+    font-size: 3rem;
+    font-weight: 900;
+    padding: 1rem 3rem;
+    text-transform: uppercase;
+}
+
+.skew-block.outline {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
