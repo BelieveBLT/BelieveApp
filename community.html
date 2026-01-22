@@ -250,17 +250,7 @@
             }
         });
 
-        // Stagger Social Cards on load/scroll
-        gsap.from(".social-card", {
-            scrollTrigger: {
-                trigger: ".social-grid",
-                start: "top 80%"
-            },
-            y: 50,
-            opacity: 0,
-            duration: 0.8,
-            stagger: 0.1
-        });
+        // REMOVED: Stagger animation for social cards to ensure immediate visibility.
     </script>
 </body>
 
