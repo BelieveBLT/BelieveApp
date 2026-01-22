@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Believe Trust - Press & Media Kit</title>
     <!-- Core Styles -->
+    <link rel="stylesheet" href="brand.css">
     <link rel="stylesheet" href="press.css">
+    <script src="page_loader.js"></script>
 
     <!-- SEO -->
     <meta name="description" content="Official Brand Assets and Press Resources for Believe Trust.">
@@ -31,12 +33,13 @@
             <div class="logo-icon">B</div>
             <span class="logo-title">BELIEVE</span>
         </a>
-        <nav class="nav-links">
+        <nav class="nav-links bt-nav-scroll">
             <a href="manifesto.html">Manifesto</a>
             <a href="framework.html">Framework</a>
             <a href="ico.html">ICO</a>
             <a href="community.html">Community</a>
             <a href="press.html" class="active">Press</a>
+            <a href="about.html">About</a>
         </nav>
     </header>
 
@@ -63,10 +66,10 @@
                         </div>
                         <div class="asset-info">
                             <h3>Official Logomark</h3>
-                            <p>Primary icon. Use on dark backgrounds.</p>
+                            <p>Primary icon. Available in light and dark variants.</p>
                             <div class="download-links">
-                                <a href="#" class="btn-text">SVG</a>
-                                <a href="#" class="btn-text">PNG</a>
+                                <a href="assets/brand/logo-dark.svg" download class="btn-text">SVG Dark</a>
+                                <a href="assets/brand/logo-light.svg" download class="btn-text">SVG Light</a>
                             </div>
                         </div>
                     </div>
@@ -78,10 +81,10 @@
                         </div>
                         <div class="asset-info">
                             <h3>Wordmark</h3>
-                            <p>Standard horizontal lockup.</p>
+                            <p>Standard horizontal lockup with icon.</p>
                             <div class="download-links">
-                                <a href="#" class="btn-text">SVG</a>
-                                <a href="#" class="btn-text">PNG</a>
+                                <a href="assets/brand/wordmark-dark.svg" download class="btn-text">SVG Dark</a>
+                                <a href="assets/brand/wordmark-light.svg" download class="btn-text">SVG Light</a>
                             </div>
                         </div>
                     </div>
@@ -97,7 +100,8 @@
                             <h3>Color Palette</h3>
                             <p>The core colors of conviction.</p>
                             <div class="download-links">
-                                <a href="#" class="btn-text">HEX CODES</a>
+                                <a href="assets/brand/colors.md" download class="btn-text">HEX CODES</a>
+                                <a href="brand.css" download class="btn-text">CSS FILE</a>
                             </div>
                         </div>
                     </div>
@@ -130,18 +134,31 @@
         </section>
 
         <!-- Contact -->
-        <section class="contact-section">
-            <div class="content">
+        <section class="contact-section bt-center-text">
+            <div class="bt-container">
                 <h2 class="title-md">Media Inquiries</h2>
-                <p class="text-md">For interviews, comments, or secure leaks.</p>
+                <p class="text-md">For interviews, high-resolution assets, or secure leaks. Our team typically responds
+                    within 4 hours.</p>
                 <a href="mailto:press@believetrust.io" class="email-link">press@believetrust.io</a>
+                <div class="bt-spacer-lg"></div>
+                <div class="bt-glass bt-padding-8 bt-radius-lg" style="display: inline-block; padding: 20px;">
+                    <p class="bt-text-subtle bt-text-xs bt-font-mono">ENCRYPTED COMMS: PGP-EYE-TRUST-2026</p>
+                </div>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="main-footer">
-        <div class="footer-content">
+    <footer class="bt-main-footer">
+        <div class="bt-container">
+            <div class="bt-footer-links">
+                <a href="manifesto.html">Manifesto</a>
+                <a href="framework.html">Framework</a>
+                <a href="ico.html">ICO</a>
+                <a href="community.html">Community</a>
+                <a href="about.html">About</a>
+                <a href="press.html">Press</a>
+            </div>
             <p>&copy; 2026 Believe Trust. All rights reserved.</p>
         </div>
     </footer>

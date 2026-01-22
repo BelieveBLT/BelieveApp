@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Believe Trust - Community & Network</title>
     <!-- Core Styles -->
+    <link rel="stylesheet" href="brand.css">
     <link rel="stylesheet" href="community.css">
+    <script src="page_loader.js"></script>
 
     <!-- SEO -->
     <meta name="description" content="Join the Believe Trust Network. Discord, Telegram, and the Guardian Program.">
@@ -65,44 +67,44 @@
             <div class="container">
                 <div class="social-grid">
                     <!-- Telegram -->
-                    <a href="#" class="social-card telegram">
+                    <a href="#" class="social-card telegram" aria-label="Join Telegram - 24,501 members">
                         <div class="card-icon">
                             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
+                                stroke-width="2" aria-hidden="true">
                                 <path
                                     d="M21.198 2.433a2.242 2.242 0 0 0-1.022.215l-8.609 3.33c-2.068.8-4.133 1.598-5.724 2.21a405.15 405.15 0 0 1-2.863 1.092c-.67.256-1.42.548-1.745 1.137-.324.588-.04 1.254.43 1.64.444.364 1.15.54 1.84.72l2.67 1.053c.47.185.938.37 1.408.556 1.43 1.09 3.193 2.5 4.908 4.22.428.43.956.88 1.493.593.537-.285.49-.974.49-1.57v-1.95c0-.606 0-1.28.618-1.714.288-.203.655-.138.986.07 1.575.986 3.15 1.972 4.093 2.56.942.59 1.77 1.108 2.576.623.805-.483 1.05-1.558 1.258-2.473l1.85-8.15c.168-.74.336-1.48.336-2.22 0-.276-.023-.553-.133-.787-.11-.235-.37-.417-.655-.453z" />
                             </svg>
                         </div>
                         <h2 class="platform-name">Telegram</h2>
                         <div class="stats">
-                            <span class="count">24,501</span>
+                            <span class="count" data-target="24501" data-suffix="">0</span>
                             <span class="label">Members</span>
                         </div>
                         <div class="join-arrow">&rarr;</div>
                     </a>
 
                     <!-- Twitter / X -->
-                    <a href="#" class="social-card twitter">
+                    <a href="#" class="social-card twitter" aria-label="Follow on X - 89.2K followers">
                         <div class="card-icon">
                             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
+                                stroke-width="2" aria-hidden="true">
                                 <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
                                 <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
                             </svg>
                         </div>
                         <h2 class="platform-name">X (Twitter)</h2>
                         <div class="stats">
-                            <span class="count">89.2K</span>
+                            <span class="count" data-target="89200" data-suffix="K" data-divide="1000">0</span>
                             <span class="label">Followers</span>
                         </div>
                         <div class="join-arrow">&rarr;</div>
                     </a>
 
                     <!-- Discord -->
-                    <a href="#" class="social-card discord">
+                    <a href="#" class="social-card discord" aria-label="Join Discord - 12,400 online">
                         <div class="card-icon">
                             <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
+                                stroke-width="2" aria-hidden="true">
                                 <circle cx="9" cy="12" r="1" />
                                 <circle cx="15" cy="12" r="1" />
                                 <path d="M7.5 7.5c3.5-1 5.5-1 9 0" />
@@ -113,7 +115,7 @@
                         </div>
                         <h2 class="platform-name">Discord</h2>
                         <div class="stats">
-                            <span class="count">12,400</span>
+                            <span class="count" data-target="12400" data-suffix="">0</span>
                             <span class="label">Online</span>
                         </div>
                         <div class="join-arrow">&rarr;</div>
@@ -177,8 +179,16 @@
     </main>
 
     <!-- Footer -->
-    <footer class="main-footer">
-        <div class="footer-content">
+    <footer class="bt-main-footer">
+        <div class="bt-container">
+            <div class="bt-footer-links">
+                <a href="manifesto.html">Manifesto</a>
+                <a href="framework.html">Framework</a>
+                <a href="ico.html">ICO</a>
+                <a href="community.html">Community</a>
+                <a href="about.html">About</a>
+                <a href="press.html">Press</a>
+            </div>
             <p>&copy; 2026 Believe Trust. All rights reserved.</p>
         </div>
     </footer>
@@ -251,6 +261,49 @@
         });
 
         // REMOVED: Stagger animation for social cards to ensure immediate visibility.
+
+        // --- ANIMATED COUNTERS ---
+        function animateCounter(el) {
+            const target = parseInt(el.dataset.target, 10);
+            const suffix = el.dataset.suffix || '';
+            const divide = parseInt(el.dataset.divide, 10) || 1;
+            const duration = 2000;
+            const startTime = performance.now();
+
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                // Easing function (ease-out cubic)
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const current = Math.floor(eased * target);
+
+                if (divide > 1) {
+                    el.textContent = (current / divide).toFixed(1) + suffix;
+                } else {
+                    el.textContent = current.toLocaleString() + suffix;
+                }
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            }
+
+            requestAnimationFrame(update);
+        }
+
+        // Trigger on scroll into view
+        const counters = document.querySelectorAll('.count[data-target]');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.dataset.animated) {
+                    entry.target.dataset.animated = 'true';
+                    animateCounter(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => counterObserver.observe(counter));
     </script>
 </body>
 

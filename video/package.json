@@ -1,0 +1,26 @@
+{
+  "name": "video",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.5.0",
+    "@remotion/cli": "^4.0.407",
+    "@remotion/three": "^4.0.407",
+    "@types/react": "^19.2.9",
+    "@types/three": "^0.182.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-reconciler": "^0.33.0",
+    "remotion": "^4.0.407",
+    "three": "^0.182.0",
+    "three-stdlib": "^2.36.1"
+  }
+}
